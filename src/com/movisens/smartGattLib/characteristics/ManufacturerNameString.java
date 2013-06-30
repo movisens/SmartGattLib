@@ -1,6 +1,6 @@
-package com.movisens.smartGattLib.characteristics;
+package com.movisens.smartgattlib.characteristics;
 
-import com.movisens.smartGattLib.GattUtils;
+import com.movisens.smartgattlib.GattUtils;
 
 public class ManufacturerNameString {
 	String content = "";

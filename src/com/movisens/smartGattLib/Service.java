@@ -1,4 +1,4 @@
-package com.movisens.smartGattLib;
+package com.movisens.smartgattlib;
 
 import java.util.UUID;
 

@@ -1,8 +1,8 @@
-package com.movisens.smartGattLib.characteristics;
+package com.movisens.smartgattlib.characteristics;
 
 import java.util.ArrayList;
 
-import com.movisens.smartGattLib.GattUtils;
+import com.movisens.smartgattlib.GattUtils;
 
 
 

@@ -1,8 +1,8 @@
-package com.movisens.smartGattLib;
+package com.movisens.smartgattlib;
 
 import java.util.UUID;
 
-import com.movisens.smartGattLib.characteristics.HeartRateMeasurement;
+import com.movisens.smartgattlib.characteristics.HeartRateMeasurement;
 
 
 public class Example {
