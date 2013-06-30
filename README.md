@@ -1,7 +1,7 @@
 SmartGattLib
 ============
 
-SmartGattLib is a Java library that simplifies the work with Bluetooth SMART devices (a.k.a Bluetooth Low Energy in Bluetooth 4.0). It provides all UUIDs of the adopted [GATT specification](http://developer.bluetooth.org/gatt/Pages/default.aspx) and an convenient way to interpret the characteristics (e.g. Heart Rate, BatteryLevel).
+SmartGattLib is a Java library that simplifies the work with **Bluetooth SMART** devices (a.k.a **Bluetooth Low Energy** in Bluetooth 4.0). It provides all UUIDs of the adopted [GATT specification](http://developer.bluetooth.org/gatt/Pages/default.aspx) and an convenient way to interpret the characteristics (e.g. Heart Rate, BatteryLevel).
 
 ### Implemented and tested characteristics ###
 
@@ -12,7 +12,7 @@ SmartGattLib is a Java library that simplifies the work with Bluetooth SMART dev
  * More to come. Please commit pull request to add more characteristics.
 
 ### Compatibility ###
-The library has no dependencies and can be use with every Bluetooth SMART stack e.g.:
+The library has **no dependencies** and can be use with **every Bluetooth SMART stack** e.g.:
 
  * Android API Level 18 (available soon)
  * [Samsung BLE SDK](http://developer.samsung.com/ble)
