@@ -1,0 +1,18 @@
+<project name="SmartGattLib" default="jar">
+
+    <target name="clean">
+		<delete dir="bin"/>
+        <delete dir="dist"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="bin/classes"/>
+        <javac srcdir="src" destdir="bin/classes" includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="clean, compile">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/SmartGattLib.jar" basedir="bin/classes">
+        </jar>
+    </target>
+</project>
