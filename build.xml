@@ -1,18 +1,77 @@
-<project name="SmartGattLib" default="jar">
+<project default="package">
+    <property file="local.properties"/>
+    <property file="project.properties"/>
 
-    <target name="clean">
-		<delete dir="bin"/>
-        <delete dir="dist"/>
+    <!-- Package properties -->
+    <property name="package.name" value="smartgattlib" />
+    <property name="package.packagename" value="com.movisens.smartgattlib" />
+    
+    <!-- Get git commit -->
+    <available file=".git" type="dir" property="git.present"/>
+
+    <target name="git-details">
+        <exec executable="git" outputproperty="git.status">
+            <arg value="status" />
+        </exec>
+        <echo message="${git.status}"/>
+        
+        <exec executable="git" outputproperty="package.versionname">
+          <arg value="describe"/>
+          <arg value="--tags"/>
+          <arg value="--dirty"/>
+          <arg value="--always"/>
+        </exec>
+        <echo message="${package.versionname}" />
     </target>
 
+    <property name="build.dir" value="./bin"/>
+    <property name="classes.dir"  value="${build.dir}/classes"/>
+    <buildnumber file="build.num" />
+
+    <!-- Build javadoc -->
+    <target name="doc">
+        <javadoc 
+            sourcepath="src"
+            destdir="doc"
+            packagenames="${package.packagename}"
+            linkoffline="http://d.android.com/reference ${android.base}/docs/reference" 
+            additionalparam="-author  -version"
+            />
+    </target>
+
+    <!-- Compile java files into classes -->
     <target name="compile">
-        <mkdir dir="bin/classes"/>
-        <javac srcdir="src" destdir="bin/classes" includeantruntime="false"/>
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${classes.dir}" />
+
+        <javac
+            includeantruntime="false"
+            srcdir="src"
+            destdir="${classes.dir}"
+            debug="true"
+            debuglevel="lines,source" />
     </target>
 
-    <target name="jar" depends="clean, compile">
-        <mkdir dir="dist"/>
-        <jar destfile="dist/SmartGattLib.jar" basedir="bin/classes">
-        </jar>
+    <!-- Package a jar from compiled class files -->
+    <target name="jar" depends="git-details,compile">
+        <manifest file="MANIFEST.MF">
+            <attribute name="Built-By" value="${user.name}" />
+            <attribute name="Implementation-Version" value="${package.versionname}"/> 
+        </manifest>
+
+        <jar destfile="${package.name}-${package.versionname}.jar" basedir="${build.dir}/classes" includes="com/movisens/smartgattlib/**/*.class" manifest="MANIFEST.MF" />
     </target>
+
+    <!-- Clean out the build files -->
+    <target name="clean">
+        <delete dir="bin" />
+        <delete dir="doc" />
+        <delete>
+            <fileset dir="." includes="*.jar"/>
+            <fileset file="MANIFEST.MF"/>
+        </delete>
+    </target>
+
+    <!-- Compile and package a jar -->
+    <target name="package" depends="clean,compile,jar" />
 </project>
