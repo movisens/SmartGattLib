@@ -24,10 +24,15 @@ Working with Bluetooth SMART devices is usually done in the following way:
 2. Connect to a GATT device
 3. Discover services
 4. Get characteristics for the services of interest **(SmartGattLib helps identifying the services)**
-5. Read characteristics or register for updates of the characteristics **(SmartGattLib helps you identifying the characteristics)**
-6. Interpret the updates from the characteristics **(SmartGattLib helps you interpreting the data)**
+5. Read characteristics or register for updates of the characteristics **(SmartGattLib helps identifying the characteristics)**
+6. Interpret the updates from the characteristics **(SmartGattLib helps interpreting the data)**
 
-Example Usage:
+### Set up ###
+
+1. Drop the [SmartGittLib-0.1.jar](http://mercurial.selenic.com/) to the libs folder of your Android project.
+2. Use the example below to identifiy services and characteristics and interpret their data
+
+### Example Usage ###
 ```java
 // onConnected
 //TODO: iterate over available services
