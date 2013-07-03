@@ -31,7 +31,7 @@ Working with Bluetooth SMART devices is usually done in the following way:
 
 ### Set up ###
 
-1. Download the latest .jar file from the releases folder and place it in your Android app’s libs/ folder.
+1. Download the latest .jar file from the [releases](https://github.com/movisens/SmartGattLib/releases) page and place it in your Android app’s libs/ folder.
 2. Use the example below to identifiy services and characteristics and interpret their data
 
 ### Example Usage ###
