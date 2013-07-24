@@ -21,6 +21,8 @@ public class Example {
 				//descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
 				//mBluetoothGatt.writeDescriptor(descriptor);
 			}
+		}else{
+			System.out.println("Found unused Service: " + Service.lookup(serviceUuid, "unknown"));
 		}
 
 		// onCharacteristicChanged
