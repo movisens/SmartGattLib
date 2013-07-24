@@ -45,8 +45,13 @@ if (Service.HEART_RATE.equals(serviceUuid)) { // Identify Service
 	//TODO: iterate over characteristics
 	UUID characteristicUuid = characteristic.getUuid();
 	if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) { // Identify Characteristic
-		// TODO: Enable notification
+		// TODO: Enable notification e.g. for Android API 18:
+		// BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptor.CLIENT_CHARACTERISTIC_CONFIGURATION);
+		// descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+		// mBluetoothGatt.writeDescriptor(descriptor);
 	}
+}else{
+	System.out.println("Found unused Service: " + Service.lookup(serviceUuid, "unknown"));
 }
 
 // onCharacteristicChanged
