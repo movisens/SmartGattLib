@@ -3,7 +3,7 @@ package com.movisens.smartgattlib;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Descriptors {
+public class Descriptor {
 	public static final UUID CHARACTERISTIC_EXTENDED_PROPERTIES = new UUID((0x2900L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID CHARACTERISTIC_USER_DESCRIPTION = new UUID((0x2901L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID CLIENT_CHARACTERISTIC_CONFIGURATION = new UUID((0x2902L << 32) | 0x1000, GattUtils.leastSigBits);
