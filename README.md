@@ -14,7 +14,7 @@ SmartGattLib is a Java library that simplifies the work with **Bluetooth SMART**
 ### Compatibility ###
 The library has **no dependencies** and can be use with **every Bluetooth SMART stack** e.g.:
 
- * Android API Level 18 (available soon)
+ * [Android API Level 18](http://developer.android.com/guide/topics/connectivity/bluetooth-le.html)
  * [Samsung BLE SDK](http://developer.samsung.com/ble)
  * [HTC OpenSense BLE API](http://www.htcdev.com/devcenter/opensense-sdk/partner-apis/bluetooth-low-energy/)
  * Motorola (seems obsolete)
