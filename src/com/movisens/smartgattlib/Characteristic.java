@@ -1,5 +1,6 @@
 package com.movisens.smartgattlib;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class Characteristic {
@@ -103,4 +104,121 @@ public class Characteristic {
 	public static final UUID PULSE_OXIMETRY_CONTROL_POINT = new UUID((0x2A62L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID PULSE_OXIMETRY_FEATURES = new UUID((0x2A61L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID PULSE_OXIMETRY_PULSATILE_EVENT = new UUID((0x2A60L << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID PULSE_OXIMETRY_SPOT_CHECK_MEASUREMENT = new UUID((0x2A5EL << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID RECORD_ACCESS_CONTROL_POINT_TESTVERSION = new UUID((0x2A52L << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID REMOVABLE = new UUID((0x2A3AL << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID SERVICE_REQUIRED = new UUID((0x2A3BL << 32) | 0x1000, GattUtils.leastSigBits);
+	
+	private static HashMap<UUID, String> attributes = new HashMap<UUID, String>();
+	static {
+		attributes.put(ALERT_CATEGORY_ID, "Alert Category ID");
+		attributes.put(ALERT_CATEGORY_ID_BIT_MASK, "Alert Category ID Bit Mask");
+		attributes.put(ALERT_LEVEL, "Alert Level");
+		attributes.put(ALERT_NOTIFICATION_CONTROL_POINT, "Alert Notification Control Point");
+		attributes.put(ALERT_STATUS, "Alert Status");
+		attributes.put(APPEARANCE, "Appearance");
+		attributes.put(BATTERY_LEVEL, "Battery Level");
+		attributes.put(BLOOD_PRESSURE_FEATURE, "Blood Pressure Feature");
+		attributes.put(BLOOD_PRESSURE_MEASUREMENT, "Blood Pressure Measurement");
+		attributes.put(BODY_SENSOR_LOCATION, "Body Sensor Location");
+		attributes.put(BOOT_KEYOBARD_INPUT_REPORT, "Boot Keyboard Input Report");
+		attributes.put(BOOT_KEYOBARD_OUTPUT_REPORT, "Boot Keyboard Output Report");
+		attributes.put(BOOT_MOUSE_INPUT_REPORT, "Boot Mouse Input Report");
+		attributes.put(CSC_FEATURE, "CSC Feature");
+		attributes.put(CSC_MEASUREMENT, "CSC Measurement");
+		attributes.put(CURRENT_TIME, "Current Time");
+		attributes.put(CYCLING_POWER_CONTROL_POINT, "Cycling Power Control Point");
+		attributes.put(CYCLING_POWER_FEATURE, "Cycling Power Feature");
+		attributes.put(CYCLING_POWER_MEASUREMENT, "Cycling Power Measurement");
+		attributes.put(CYCLING_POWER_VECTOR, "Cycling Power Vector");
+		attributes.put(DATE_TIME, "Date Time");
+		attributes.put(DAY_DATE_TIME, "Day Date Time");
+		attributes.put(DAY_OF_WEEK, "Day of Week");
+		attributes.put(DEVICE_NAME, "Device Name");
+		attributes.put(DST_OFFSET, "DST Offset");
+		attributes.put(EXACT_TIME_256, "Exact Time 256");
+		attributes.put(FIRMWARE_REVISION_STRING, "Firmware Revision String");
+		attributes.put(GLUCOSE_FEATURE, "Glucose Feature");
+		attributes.put(GLUCOSE_MEASUREMENT, "Glucose Measurement");
+		attributes.put(GLUCOSE_MEASUREMENT_CONTROL, "Glucose Measurement Context");
+		attributes.put(HARDWARE_REVISION_STRING, "Hardware Revision String");
+		attributes.put(HEART_RATE_CONTROL_POINT, "Heart Rate Control Point");
+		attributes.put(HEART_RATE_MEASUREMENT, "Heart Rate Measurement");
+		attributes.put(HID_CONTROL_POINT, "HID Control Point");
+		attributes.put(HID_INFORMATION, "HID Information");
+		attributes.put(IEEE11073_20601_REGULATORY_CERTIFICATION_DATA_LIST, "IEEE 11073-20601 Regulatory Certification Data List");
+		attributes.put(INTERMEDIATE_CUFF_PRESSURE, "Intermediate Cuff Pressure");
+		attributes.put(INTERMEDIATE_TEMPERATURE, "Intermediate Temperature");
+		attributes.put(LN_CONTROL_POINT, "LN Control Point");
+		attributes.put(LN_FEATURE, "LN Feature");
+		attributes.put(LOCAL_TIME_INFORMATION, "Local Time Information");
+		attributes.put(LOCATION_AND_SPEED, "Location and Speed");
+		attributes.put(MANUFACTURER_NAME_STRING, "Manufacturer Name String");
+		attributes.put(MEASUREMENT_INTERVAL, "Measurement Interval");
+		attributes.put(MODEL_NUMBER_STRING, "Model Number String");
+		attributes.put(NAVIGATION, "Navigation");
+		attributes.put(NEW_ALERT, "New Alert");
+		attributes.put(PERIPERAL_PREFFERED_CONNECTION_PARAMETERS, "Peripheral Preferred Connection Parameters");
+		attributes.put(PERIPHERAL_PRIVACY_FLAG, "Peripheral Privacy Flag");
+		attributes.put(PN_PID, "PnP ID");
+		attributes.put(POSITION_QUALITY, "Position Quality");
+		attributes.put(PROTOCOL_MODE, "Protocol Mode");
+		attributes.put(RECONNECTION_ADDRESS, "Reconnection Address");
+		attributes.put(RECORD_ACCESS_CONTROL_POINT, "Record Access Control Point");
+		attributes.put(REFERENCE_TIME_INFORMATION, "Reference Time Information");
+		attributes.put(REPORT, "Report");
+		attributes.put(REPORT_MAP, "Report Map");
+		attributes.put(RINGER_CONTROL_POINT, "Ringer Control Point");
+		attributes.put(RINGER_SETTING, "Ringer Setting");
+		attributes.put(RSC_FEATURE, "RSC Feature");
+		attributes.put(RSC_MEASUREMENT, "RSC Measurement");
+		attributes.put(SC_CONTROL_POINT, "SC Control Point");
+		attributes.put(SCAN_INTERVAL_WINDOW, "Scan Interval Window");
+		attributes.put(SCAN_REFRESH, "Scan Refresh");
+		attributes.put(SENSOR_LOCATION, "Sensor Location");
+		attributes.put(SERIAL_NUMBER_STRING, "Serial Number String");
+		attributes.put(SERVICE_CHANGED, "Service Changed");
+		attributes.put(SOFTWARE_REVISION_STRING, "Software Revision String");
+		attributes.put(SUPPORTED_NEW_ALERT_CATEGORY, "Supported New Alert Category");
+		attributes.put(SUPPORTED_UNREAD_ALERT_CATEGORY, "Supported Unread Alert Category");
+		attributes.put(SYSTEM_ID, "System ID");
+		attributes.put(TEMPERATURE_MEASUREMENT, "Temperature Measurement");
+		attributes.put(TEMPERATURE_TYPE, "Temperature Type");
+		attributes.put(TIME_ACCURACY, "Time Accuracy");
+		attributes.put(TIME_SOURCE, "Time Source");
+		attributes.put(TIME_UPDATE_CONTROL_POINT, "Time Update Control Point");
+		attributes.put(TIME_UPDATE_STATE, "Time Update State");
+		attributes.put(TIME_WITH_DST, "Time with DST");
+		attributes.put(TIME_ZONE, "Time Zone");
+		attributes.put(TX_POWER_LEVEL, "Tx Power Level");
+		attributes.put(UNREAD_ALERT_STATUS, "Unread Alert Status");
+		attributes.put(AGGREGATE_INPUT, "Aggregate Input");
+		attributes.put(ANALOG_INPUT, "Analog Input");
+		attributes.put(ANALOG_OUTPUT, "Analog Output");
+		attributes.put(DIGITAL_INPUT, "Digital Input");
+		attributes.put(DIGITAL_OUTPUT, "Digital Output");
+		attributes.put(EXACT_TIME_100, "Exact Time 100");
+		attributes.put(NETWORK_AVAILABILITY, "Network Availability");
+		attributes.put(SCIENTIFIC_TEMPERATURE_IN_CELSIUS, "Scientific Temperature in Celsius");
+		attributes.put(SECONDARY_TIME_ZONE, "Secondary Time Zone");
+		attributes.put(STRING, "String");
+		attributes.put(TEMPERATURE_IN_CELSIUS, "Temperature in Celsius");
+		attributes.put(TEMPERATURE_IN_FAHRENHEIT, "Temperature in Fahrenheit");
+		attributes.put(TIME_BROADCAST, "Time Broadcast");
+		attributes.put(BATTERY_LEVEL_STATE, "Battery Level State");
+		attributes.put(BATTERY_POWER_STATE, "Battery Power State");
+		attributes.put(PULSE_OXIMETRY_CONTINUOUS_MEASUREMENT, "Pulse Oximetry Continuous Measurement");
+		attributes.put(PULSE_OXIMETRY_CONTROL_POINT, "Pulse Oximetry Control Point");
+		attributes.put(PULSE_OXIMETRY_FEATURES, "Pulse Oximetry Features");
+		attributes.put(PULSE_OXIMETRY_PULSATILE_EVENT, "Pulse Oximetry Pulsatile Event");
+		attributes.put(PULSE_OXIMETRY_SPOT_CHECK_MEASUREMENT, "Pulse Oximetry Spot-Check Measurement");
+		attributes.put(RECORD_ACCESS_CONTROL_POINT_TESTVERSION, "Record Access Control point (Test Version)");
+		attributes.put(REMOVABLE, "Removable");
+		attributes.put(SERVICE_REQUIRED, "Service Required");
+    }
+
+    public static String lookup(UUID uuid, String defaultName) {
+        String name = attributes.get(uuid);
+		return name == null ? defaultName : name;
+	}
 }

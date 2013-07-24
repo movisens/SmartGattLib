@@ -17,6 +17,9 @@ public class Example {
 			UUID characteristicUuid = null;// characteristic.getUuid();
 			if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) {
 				// TODO: Enable notification
+				//BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptors.CLIENT_CHARACTERISTIC_CONFIGURATION);
+				//descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+				//mBluetoothGatt.writeDescriptor(descriptor);
 			}
 		}
 
