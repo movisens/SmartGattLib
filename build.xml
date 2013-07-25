@@ -45,6 +45,7 @@
         <mkdir dir="${classes.dir}" />
 
         <javac
+			target="1.6"
             includeantruntime="false"
             srcdir="src"
             destdir="${classes.dir}"
