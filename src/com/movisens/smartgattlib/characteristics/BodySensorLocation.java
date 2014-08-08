@@ -1,6 +1,6 @@
 package com.movisens.smartgattlib.characteristics;
 
-import com.movisens.smartgattlib.GattUtils;
+import com.movisens.smartgattlib.GattByteBuffer;
 
 public class BodySensorLocation {
 	Location location = Location.Other;
@@ -10,7 +10,7 @@ public class BodySensorLocation {
 	}
 
 	public BodySensorLocation(byte[] value) {
-		int loc = GattUtils.getIntValue(value, GattUtils.FORMAT_UINT8, 0);
+		int loc = GattByteBuffer.wrap(value).getUint8();
 
 		switch (loc) {
 		case 0:

@@ -2,9 +2,8 @@ package com.movisens.smartgattlib.characteristics;
 
 import java.util.ArrayList;
 
+import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.GattUtils;
-
-
 
 public class HeartRateMeasurement {
 
@@ -18,17 +17,12 @@ public class HeartRateMeasurement {
 	}
 
 	public HeartRateMeasurement(byte[] value) {
-		int length = value.length;
-		int offset = 1;
-		byte flags = value[0];
+		GattByteBuffer bb = GattByteBuffer.wrap(value);
+		byte flags = bb.getInt8();
 		if (isHeartRateInUINT16(flags)) {
-			hrmval = GattUtils.getIntValue(value, GattUtils.FORMAT_UINT16,
-					offset);
-			offset += 2;
+			hrmval = bb.getUint16();
 		} else {
-			hrmval = GattUtils.getIntValue(value, GattUtils.FORMAT_UINT8,
-					offset);
-			offset += 1;
+			hrmval = bb.getUint8();
 		}
 		if (isWornStatusPresent(flags)) {
 			if (isSensorWorn(flags)) {
@@ -38,14 +32,11 @@ public class HeartRateMeasurement {
 			}
 		}
 		if (isEePresent(flags)) {
-			eeval = GattUtils.getIntValue(value, GattUtils.FORMAT_UINT16,
-					offset);
-			offset += 2;
+			eeval = bb.getUint16();
 		}
 		if (isRrIntPresent(flags)) {
-			for (int i = offset; i < length; i += 2) {
-				rrIntervals.add(GattUtils.getIntValue(value,
-						GattUtils.FORMAT_UINT16, i) / 1024F);
+			while (bb.hasRemaining()) {
+				rrIntervals.add(bb.getUint16() / 1024F);
 			}
 		}
 	}

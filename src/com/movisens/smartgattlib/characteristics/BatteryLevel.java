@@ -1,12 +1,12 @@
 package com.movisens.smartgattlib.characteristics;
 
-import com.movisens.smartgattlib.GattUtils;
+import com.movisens.smartgattlib.GattByteBuffer;
 
 public class BatteryLevel {
 	int level = -1;
 
 	public BatteryLevel(byte[] value) {
-		level = GattUtils.getIntValue(value, GattUtils.FORMAT_UINT8, 0);
+		level = GattByteBuffer.wrap(value).getUint8();
 	}
 
 	/**
