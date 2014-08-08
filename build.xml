@@ -46,6 +46,7 @@
 
         <javac
 			target="1.6"
+            source="1.6"
             includeantruntime="false"
             srcdir="src"
             destdir="${classes.dir}"
