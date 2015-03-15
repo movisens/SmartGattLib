@@ -1,5 +1,6 @@
 SmartGattLib
 ============
+<a href="https://jitpack.io/#movisens/SmartGattLib/"><img src="https://img.shields.io/github/tag/movisens/SmartGattLib.svg?label=Maven on JitPack" /></a>
 
 SmartGattLib is a Java library that simplifies the work with **Bluetooth SMART** devices (a.k.a. **Bluetooth Low Energy** in Bluetooth 4.0). It provides all UUIDs of the adopted [GATT specification](http://developer.bluetooth.org/gatt/Pages/default.aspx) and an convenient way to interpret the characteristics (e.g. Heart Rate, BatteryLevel).
 
@@ -31,7 +32,17 @@ Working with Bluetooth SMART devices is usually done in the following way:
 
 ### Set up ###
 
-1. Download the latest .jar file from the [releases](https://github.com/movisens/SmartGattLib/releases) page and place it in your Android app’s libs/ folder.
+1. Add the JitPack repository and the dependency to your build file:
+
+  ```gradle
+	repositories {
+	    maven { url "https://jitpack.io" }
+	}
+	dependencies {
+	    compile 'com.github.movisens:SmartGattLib:1.7'
+	}
+  ```
+  or download the latest .jar file from the [releases](https://github.com/movisens/SmartGattLib/releases) page and place it in your Android app’s libs/ folder. 
 2. Use the example below to identifiy services and characteristics and interpret their data
 
 ### Example Usage ###
