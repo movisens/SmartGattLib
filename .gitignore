@@ -19,3 +19,9 @@ local.properties
 
 # Distribution files
 dist/
+/.idea
+/.gradle
+/build
+/SmartGattLib.iml
+/SmartGattLib.ipr
+/SmartGattLib.iws
