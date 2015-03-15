@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven'
 
-group = 'com.github.movisens.SmartGattLib'
+group = 'com.github.movisens'
 
 targetCompatibility = 1.6
 sourceCompatibility = 1.6
