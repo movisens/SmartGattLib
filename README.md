@@ -30,6 +30,8 @@ Working with Bluetooth SMART devices is usually done in the following way:
 5. Read characteristics or register for updates **(SmartGattLib helps identifying the characteristics)**
 6. Interpret the updates from the characteristics **(SmartGattLib helps interpreting the data)**
 
+Example Android project with SmartGattLib available [here](https://github.com/movisens/android-SmartGattLib-Example). This is a fork of the Android BluetoothLeGatt Example project. Main modifications can be found in this  [commit](https://github.com/movisens/android-SmartGattLib-Example/commit/7635d950f8af37ddae4a3bf563ddfb658fa88d0f).
+
 ### Set up ###
 
 1. Add the JitPack repository and the dependency to your build file:
