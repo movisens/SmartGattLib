@@ -48,6 +48,7 @@ public class CyclingSpeedCadenceMeasurement {
         return cumulativeWheelRevolutions;
     }
 
+    //unit has resolution of 1/1024s
     public int getLastWheelEventTime() {
         return lastWheelEventTime;
     }
@@ -56,6 +57,7 @@ public class CyclingSpeedCadenceMeasurement {
         return cumulativeCrankRevolutions;
     }
 
+    //unit has resolution of 1/1024s
     public int getLastCrankEventTime() {
         return lastCrankEventTime;
     }
