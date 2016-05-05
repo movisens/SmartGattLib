@@ -7,8 +7,11 @@
  * user guide available at http://gradle.org/docs/1.11/userguide/tutorial_java_projects.html
  */
 
-// Apply the java plugin to add support for Java
-apply plugin: 'java'
+plugins {
+    id "org.jruyi.osgibnd" version "0.5.0"
+}
+
+// java plugin implied by the osgibnd plugin
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven'
@@ -18,10 +21,23 @@ group = 'com.github.movisens'
 targetCompatibility = 1.6
 sourceCompatibility = 1.6
 
+version = '1.7.1'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+//OSGI specific entries that are not automatically generated
+jar {
+    manifest {
+        attributes (
+		'Bundle-SymbolicName': project.group + project.name,
+		'Bundle-Version': project.version,
+		'Export-Package': 'com.movisens.smartgattlib,com.movisens.smartgattlib.characteristics'
+        )
+    }
 }
