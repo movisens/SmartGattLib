@@ -32,6 +32,7 @@ public class Service {
 	public static final UUID LINK_LOSS_SERVICE_1_1 = new UUID((0x1803L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID NETWORK_AVAILABILITY_SERVICE = new UUID((0x180BL << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID TX_POWER_SERVICE_1_1 = new UUID((0x1804L << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID USER_DATA_SERVICE = new UUID((0x181cL << 32) | 0x1000, GattUtils.leastSigBits);
 	
 	private static HashMap<UUID, String> attributes = new HashMap<UUID, String>();
 	static {
@@ -63,6 +64,7 @@ public class Service {
 		attributes.put(LINK_LOSS_SERVICE_1_1, "Link Loss Service 1.1");
 		attributes.put(NETWORK_AVAILABILITY_SERVICE, "Network Availability Service");
 		attributes.put(TX_POWER_SERVICE_1_1, "Tx Power Service 1.1");
+		attributes.put(USER_DATA_SERVICE, "User Data Service");
     }
 
     public static String lookup(UUID uuid, String defaultName) {

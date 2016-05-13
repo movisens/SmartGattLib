@@ -108,8 +108,13 @@ public class Characteristic {
 	public static final UUID RECORD_ACCESS_CONTROL_POINT_TESTVERSION = new UUID((0x2A52L << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID REMOVABLE = new UUID((0x2A3AL << 32) | 0x1000, GattUtils.leastSigBits);
 	public static final UUID SERVICE_REQUIRED = new UUID((0x2A3BL << 32) | 0x1000, GattUtils.leastSigBits);
-	
+	public static final UUID AGE = new UUID((0x2A80L << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID GENDER = new UUID((0x2A8CL << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID WEIGHT = new UUID((0x2A98L << 32) | 0x1000, GattUtils.leastSigBits);
+	public static final UUID HEIGHT = new UUID((0x2A8EL << 32) | 0x1000, GattUtils.leastSigBits);
+
 	private static HashMap<UUID, String> attributes = new HashMap<UUID, String>();
+
 	static {
 		attributes.put(ALERT_CATEGORY_ID, "Alert Category ID");
 		attributes.put(ALERT_CATEGORY_ID_BIT_MASK, "Alert Category ID Bit Mask");
@@ -215,10 +220,14 @@ public class Characteristic {
 		attributes.put(RECORD_ACCESS_CONTROL_POINT_TESTVERSION, "Record Access Control point (Test Version)");
 		attributes.put(REMOVABLE, "Removable");
 		attributes.put(SERVICE_REQUIRED, "Service Required");
-    }
+		attributes.put(AGE, "Age of Participant");
+		attributes.put(GENDER, "Gender of participant");
+		attributes.put(WEIGHT, "Weight of participant");
+		attributes.put(HEIGHT, "Height of participant");
+	}
 
-    public static String lookup(UUID uuid, String defaultName) {
-        String name = attributes.get(uuid);
+	public static String lookup(UUID uuid, String defaultName) {
+		String name = attributes.get(uuid);
 		return name == null ? defaultName : name;
 	}
 }
