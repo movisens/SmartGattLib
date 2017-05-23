@@ -1,31 +1,26 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
-public class Height {
-	private byte[] bytes;
-	private int value;
+public class Height extends AbstractCharacteristic<Integer> {
 
-	/**
-	 * 
-	 * @param height
-	 *            in cm
-	 */
-	public Height(int height) {
-		this.value = height;
-		this.bytes = GattByteBuffer.allocate(4).putUint16(height).array();
-	}
+    public Height(byte[] bytes) {
+        super(bytes);
+    }
 
-	public Height(byte[] bytes) {
-		this.bytes = bytes;
-		this.value = GattByteBuffer.wrap(bytes).getUint16();
-	}
+    public Height(Integer value) {
+        super(value);
+    }
 
-	public byte[] getBytes() {
-		return bytes;
-	}
+    @Override
+    protected Integer getValueForBytes(byte[] bytes) {
+        return GattByteBuffer.wrap(bytes).getUint16();
+    }
 
-	public int getValue() {
-		return value;
-	}
+    @Override
+    protected byte[] getBytesForValue(Integer value) {
+        return GattByteBuffer.allocate(4).putUint16(value).array();
+    }
+
 }

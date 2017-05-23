@@ -2,8 +2,9 @@ package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.GattUtils;
+import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
 
-public class CyclingSpeedCadenceMeasurement {
+public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacteristic<Number[]> {
 
     public static final int MAX_CUMULATIVE_CRANK_REVS = 65535;
     public static final long MAX_CUMULATIVE_WHEEL_REVS = 4294967295L;
@@ -16,10 +17,13 @@ public class CyclingSpeedCadenceMeasurement {
     private int cumulativeCrankRevolutions;
     private int lastCrankEventTime;
 
-    public CyclingSpeedCadenceMeasurement(byte[] value) {
-        super();
+    public CyclingSpeedCadenceMeasurement(byte[] bytes) {
+        super(bytes);
+    }
 
-        GattByteBuffer bb = GattByteBuffer.wrap(value);
+    @Override
+    protected Number[] getValueForBytes(byte[] bytes) {
+        GattByteBuffer bb = GattByteBuffer.wrap(bytes);
 
         byte flags = bb.getInt8();
         wheelRevPresent = wheelRevPresent(flags);
@@ -34,6 +38,7 @@ public class CyclingSpeedCadenceMeasurement {
             cumulativeCrankRevolutions = bb.getUint16();
             lastCrankEventTime = bb.getUint16();
         }
+        return new Number[]{cumulativeWheelRevolutions, lastWheelEventTime, cumulativeCrankRevolutions, lastCrankEventTime};
     }
 
     public boolean isWheelRevPresent() {

@@ -1,46 +1,47 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
 
-public class BodySensorLocation {
-	Location location = Location.Other;
+public class BodySensorLocation extends AbstractReadOnlyCharacteristic<BodySensorLocation.Location> {
 
-	public enum Location {
-		Other, Chest, Wrist, Finger, Hand, Ear_Lobe, Foot;
-	}
+    public BodySensorLocation(byte[] bytes) {
+        super(bytes);
+    }
 
-	public BodySensorLocation(byte[] value) {
-		int loc = GattByteBuffer.wrap(value).getUint8();
+    public enum Location {
+        Other, Chest, Wrist, Finger, Hand, Ear_Lobe, Foot;
+    }
 
-		switch (loc) {
-		case 0:
-			location = Location.Other;
-			break;
-		case 1:
-			location = Location.Chest;
-			break;
-		case 2:
-			location = Location.Wrist;
-			break;
-		case 3:
-			location = Location.Finger;
-			break;
-		case 4:
-			location = Location.Hand;
-			break;
-		case 5:
-			location = Location.Ear_Lobe;
-			break;
-		case 6:
-			location = Location.Foot;
-			break;
-		}
-	}
+    @Override
+    protected Location getValueForBytes(byte[] bytes) {
+        Location location = Location.Other;
+        int loc = GattByteBuffer.wrap(bytes).getUint8();
 
-	/**
-	 * @return The current location of the sensor
-	 */
-	public Location getBodySensorLocation() {
-		return location;
-	}
+        switch (loc) {
+            case 0:
+                location = Location.Other;
+                break;
+            case 1:
+                location = Location.Chest;
+                break;
+            case 2:
+                location = Location.Wrist;
+                break;
+            case 3:
+                location = Location.Finger;
+                break;
+            case 4:
+                location = Location.Hand;
+                break;
+            case 5:
+                location = Location.Ear_Lobe;
+                break;
+            case 6:
+                location = Location.Foot;
+                break;
+        }
+        return location;
+    }
+
 }

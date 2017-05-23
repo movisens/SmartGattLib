@@ -1,32 +1,27 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
-public class Age {
-	private byte[] bytes;
-	private short value;
+public class Age extends AbstractCharacteristic<Short> {
 
-	/**
-	 * 
-	 * @param age
-	 *            in years (for example 35,5)
-	 */
-	public Age(short age) {
-		this.value = age;
-		this.bytes = GattByteBuffer.allocate(4).putUint8(age).array();
-	}
+    public Age(byte[] bytes) {
+        super(bytes);
+    }
 
-	public Age(byte[] bytes) {
-		this.bytes = bytes;
-		this.value = GattByteBuffer.wrap(bytes).getUint8();
-	}
+    public Age(Short value) {
+        super(value);
+    }
 
-	public byte[] getBytes() {
-		return bytes;
-	}
 
-	public short getValue() {
-		return this.value;
-	}
+    @Override
+    protected Short getValueForBytes(byte[] bytes) {
+        return GattByteBuffer.wrap(bytes).getUint8();
+    }
+
+    @Override
+    protected byte[] getBytesForValue(Short value) {
+        return GattByteBuffer.allocate(4).putUint8(value).array();
+    }
 
 }

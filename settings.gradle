@@ -17,3 +17,4 @@ include 'services:webservice'
 */
 
 rootProject.name = 'SmartGattLib'
+

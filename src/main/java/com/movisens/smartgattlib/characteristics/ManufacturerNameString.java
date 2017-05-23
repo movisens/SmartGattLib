@@ -1,15 +1,16 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
 
-public class ManufacturerNameString {
-	String content = "";
+public class ManufacturerNameString extends AbstractReadOnlyCharacteristic<String> {
 
-	public ManufacturerNameString(byte[] value) {
-		content = GattByteBuffer.wrap(value).getString();
-	}
+    public ManufacturerNameString(byte[] bytes) {
+        super(bytes);
+    }
 
-	public String getManufacturerNameString() {
-		return content;
-	}
+    @Override
+    protected String getValueForBytes(byte[] bytes) {
+        return GattByteBuffer.wrap(bytes).getString();
+    }
 }

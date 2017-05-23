@@ -1,36 +1,27 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
-public class Weight {
-	private byte[] bytes;
-	private float value;
+public class Weight extends AbstractCharacteristic<Float> {
 
-	/**
-	 * Constructor for new WeightCharacteristic
-	 * 
-	 * @param weight
-	 *            in kg
-	 */
-	public Weight(float weight) {
-		// https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.weight.xml
-		this.value = weight;
-		float storeWeight = weight * 200;
-		this.bytes = GattByteBuffer.allocate(4).putUint16(Math.round(storeWeight)).array();
-	}
+    public Weight(byte[] bytes) {
+        super(bytes);
+    }
 
-	public Weight(byte[] bytes) {
-		// https://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.weight.xml
-		this.bytes = bytes;
-		this.value = GattByteBuffer.wrap(bytes).getUint16() / 200;
-	}
+    public Weight(Float value) {
+        super(value);
+    }
 
-	public byte[] getBytes() {
-		return bytes;
-	}
+    @Override
+    protected Float getValueForBytes(byte[] bytes) {
+        return GattByteBuffer.wrap(bytes).getUint16() / 200f;
+    }
 
-	public float getValue() {
-		return value;
-	}
+    @Override
+    protected byte[] getBytesForValue(Float value) {
+        float storeWeight = value * 200;
+        return GattByteBuffer.allocate(4).putUint16(Math.round(storeWeight)).array();
+    }
 
 }

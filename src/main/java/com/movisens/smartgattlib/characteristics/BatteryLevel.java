@@ -1,19 +1,17 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
 
-public class BatteryLevel {
-	int level = -1;
+public class BatteryLevel extends AbstractReadOnlyCharacteristic<Short> {
 
-	public BatteryLevel(byte[] value) {
-		level = GattByteBuffer.wrap(value).getUint8();
-	}
+    public BatteryLevel(byte[] bytes) {
+        super(bytes);
+    }
 
-	/**
-	 * @return The current charge level of a battery in %. 100% represents fully
-	 *         charged while 0% represents fully discharged.
-	 */
-	public int getBatteryLevel() {
-		return level;
-	}
+    @Override
+    protected Short getValueForBytes(byte[] bytes) {
+        return GattByteBuffer.wrap(bytes).getUint8();
+    }
+
 }

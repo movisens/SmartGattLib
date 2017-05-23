@@ -1,41 +1,39 @@
 package com.movisens.smartgattlib.characteristics;
 
 import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
-public class Gender {
-	public static enum Sex {
-		MALE((short) 0), FEMALE((short) 1);
+public class Gender extends AbstractCharacteristic<Gender.Sex> {
+    public Gender(byte[] bytes) {
+        super(bytes);
+    }
 
-		public final short value;
+    public Gender(Sex value) {
+        super(value);
+    }
 
-		Sex(short value) {
-			this.value = value;
-		}
-	}
+    public static enum Sex {
+        MALE((short) 0), FEMALE((short) 1);
 
-	private byte[] value;
-	private Sex sex;
+        public final short value;
 
-	public Gender(Sex sex) {
-		this.sex = sex;
-		this.value = GattByteBuffer.allocate(4).putUint8(sex.value).array();
-	}
+        Sex(short value) {
+            this.value = value;
+        }
+    }
 
-	public Gender(byte[] bytes) {
-		this.value = bytes;
-		if (GattByteBuffer.wrap(bytes).getUint8() == 0) {
-			this.sex = Sex.MALE;
-		} else {
-			this.sex = Sex.FEMALE;
-		}
-	}
+    @Override
+    protected Sex getValueForBytes(byte[] bytes) {
+        if (GattByteBuffer.wrap(bytes).getUint8() == 0) {
+            return Sex.MALE;
+        } else {
+            return Sex.FEMALE;
+        }
+    }
 
-	public byte[] getBytes() {
-		return value;
-	}
-
-	public Sex getValue() {
-		return sex;
-	}
+    @Override
+    protected byte[] getBytesForValue(Sex value) {
+        return GattByteBuffer.allocate(4).putUint8(value.value).array();
+    }
 
 }
