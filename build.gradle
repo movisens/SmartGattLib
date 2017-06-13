@@ -21,7 +21,7 @@ group = 'com.github.movisens'
 targetCompatibility = 1.6
 sourceCompatibility = 1.6
 
-version = '2.0'
+version = '2.0.0'
 
 repositories {
     mavenCentral()
