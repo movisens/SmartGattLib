@@ -1,16 +1,17 @@
 package com.movisens.smartgattlib.characteristics;
 
+import com.movisens.smartgattlib.Characteristic;
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
 public class Weight extends AbstractCharacteristic<Float> {
 
     public Weight(byte[] bytes) {
-        super(bytes);
+        super(bytes, Characteristic.WEIGHT);
     }
 
     public Weight(Float value) {
-        super(value);
+        super(value, Characteristic.WEIGHT);
     }
 
     @Override

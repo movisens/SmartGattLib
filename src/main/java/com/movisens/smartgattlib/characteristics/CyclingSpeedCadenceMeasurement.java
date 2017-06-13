@@ -1,5 +1,6 @@
 package com.movisens.smartgattlib.characteristics;
 
+import com.movisens.smartgattlib.Characteristic;
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.GattUtils;
 import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
@@ -18,7 +19,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
     private int lastCrankEventTime;
 
     public CyclingSpeedCadenceMeasurement(byte[] bytes) {
-        super(bytes);
+        super(bytes, Characteristic.CYCLING_POWER_MEASUREMENT);
     }
 
     @Override

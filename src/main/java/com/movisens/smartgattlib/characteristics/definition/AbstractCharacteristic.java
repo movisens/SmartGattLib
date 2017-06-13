@@ -1,5 +1,7 @@
 package com.movisens.smartgattlib.characteristics.definition;
 
+import java.util.UUID;
+
 /**
  * Created by Robert Zetzsche on 07.03.2017.
  */
@@ -7,12 +9,13 @@ package com.movisens.smartgattlib.characteristics.definition;
 public abstract class AbstractCharacteristic<T> extends AbstractReadOnlyCharacteristic<T> {
     protected byte[] bytes;
 
-    public AbstractCharacteristic(byte[] bytes) {
-        super(bytes);
+    protected AbstractCharacteristic(byte[] bytes, UUID uuid) {
+        super(bytes, uuid);
         this.bytes = bytes;
     }
 
-    public AbstractCharacteristic(T value) {
+    protected AbstractCharacteristic(T value, UUID uuid) {
+        super(uuid);
         this.value = value;
         this.bytes = getBytesForValue(value);
     }

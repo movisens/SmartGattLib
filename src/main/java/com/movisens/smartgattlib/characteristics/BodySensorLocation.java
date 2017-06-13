@@ -1,12 +1,13 @@
 package com.movisens.smartgattlib.characteristics;
 
+import com.movisens.smartgattlib.Characteristic;
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
 
 public class BodySensorLocation extends AbstractReadOnlyCharacteristic<BodySensorLocation.Location> {
 
     public BodySensorLocation(byte[] bytes) {
-        super(bytes);
+        super(bytes, Characteristic.BODY_SENSOR_LOCATION);
     }
 
     public enum Location {

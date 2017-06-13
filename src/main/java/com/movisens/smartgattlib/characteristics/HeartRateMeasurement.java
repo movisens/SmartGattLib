@@ -2,6 +2,7 @@ package com.movisens.smartgattlib.characteristics;
 
 import java.util.ArrayList;
 
+import com.movisens.smartgattlib.Characteristic;
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.GattUtils;
 import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
@@ -14,7 +15,7 @@ public class HeartRateMeasurement extends AbstractReadOnlyCharacteristic<Integer
     SensorWorn sensorWorn = SensorWorn.UNSUPPORTED;
 
     public HeartRateMeasurement(byte[] bytes) {
-        super(bytes);
+        super(bytes, Characteristic.HEART_RATE_MEASUREMENT);
     }
 
     public enum SensorWorn {
