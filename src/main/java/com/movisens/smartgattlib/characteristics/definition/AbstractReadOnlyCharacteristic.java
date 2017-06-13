@@ -24,5 +24,8 @@ public abstract class AbstractReadOnlyCharacteristic<T> {
 
     protected abstract T getValueForBytes(byte[] bytes);
 
-
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "=" + getValue();
+    }
 }
