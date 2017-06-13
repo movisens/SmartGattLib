@@ -22,6 +22,6 @@ dist/
 /.idea
 /.gradle
 /build
-/SmartGattLib.iml
-/SmartGattLib.ipr
-/SmartGattLib.iws
+*.iml
+*.ipr
+*.iws
