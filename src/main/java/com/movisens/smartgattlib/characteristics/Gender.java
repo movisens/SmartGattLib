@@ -1,16 +1,15 @@
 package com.movisens.smartgattlib.characteristics;
 
-import com.movisens.smartgattlib.Characteristic;
 import com.movisens.smartgattlib.GattByteBuffer;
 import com.movisens.smartgattlib.characteristics.definition.AbstractCharacteristic;
 
 public class Gender extends AbstractCharacteristic<Gender.Sex> {
     public Gender(byte[] bytes) {
-        super(bytes, Characteristic.GENDER);
+        super(bytes);
     }
 
     public Gender(Sex value) {
-        super(value, Characteristic.GENDER);
+        super(value);
     }
 
     public static enum Sex {
