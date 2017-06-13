@@ -11,7 +11,7 @@ public abstract class AbstractReadOnlyCharacteristic<T> {
 
     protected final UUID uuid;
 
-    protected AbstractReadOnlyCharacteristic(UUID uuid) {
+    AbstractReadOnlyCharacteristic(UUID uuid) {
         this.uuid = uuid;
     }
 
