@@ -21,7 +21,7 @@ group = 'com.github.movisens'
 targetCompatibility = 1.6
 sourceCompatibility = 1.6
 
-version = '2.1.0'
+version = '3.0.0'
 
 repositories {
     mavenCentral()
@@ -31,13 +31,21 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir('src-gen/main/java')
+        }
+    }
+}
+
 //OSGI specific entries that are not automatically generated
 jar {
     manifest {
         attributes (
 		'Bundle-SymbolicName': project.group + project.name,
 		'Bundle-Version': project.version,
-		'Export-Package': 'com.movisens.smartgattlib,com.movisens.smartgattlib.characteristics'
+		'Export-Package': 'com.movisens.smartgattlib'
         )
     }
 }

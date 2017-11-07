@@ -1,9 +1,11 @@
-import com.movisens.smartgattlib.GattByteBuffer;
-import com.movisens.smartgattlib.characteristics.Weight;
+import com.movisens.smartgattlib.attributes.Weight;
+import com.movisens.smartgattlib.helper.GattByteBuffer;
 import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -13,14 +15,14 @@ public class WeightTest {
     @Test
     public void testWeight() {
         Float weightFloat = 12.5f;
-        byte[] bytes = GattByteBuffer.allocate(4).putUint16(Math.round(weightFloat * 200)).array();
-        Weight weight = new Weight(weightFloat);
+        byte[] bytes = GattByteBuffer.allocate(2).putUint16(Math.round(weightFloat * 200)).array();
+        Weight weight = new Weight(weightFloat.doubleValue());
         Weight weightBytes = new Weight(bytes);
-        assertTrue(weight.getValue().equals(weightFloat));
-        assertTrue(weightBytes.getValue().equals(weightFloat));
-        assertTrue(weightBytes.getValue().equals(weight.getValue()));
-        assertTrue(Arrays.equals(weight.getBytes(), bytes));
-        assertTrue(Arrays.equals(weightBytes.getBytes(), bytes));
-        assertTrue(Arrays.equals(weight.getBytes(), weightBytes.getBytes()));
+        assertEquals(weight.getWeight(), weightFloat, 0);
+        assertEquals(weightBytes.getWeight(), weightFloat.doubleValue(), 0);
+        assertEquals(weightBytes.getWeight(), weight.getWeight());
+        assertArrayEquals(weight.getBytes(), bytes);
+        assertArrayEquals(weightBytes.getBytes(), bytes);
+        assertArrayEquals(weight.getBytes(), weightBytes.getBytes());
     }
 }

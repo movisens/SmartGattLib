@@ -1,8 +1,8 @@
 import java.util.UUID;
 
-import com.movisens.smartgattlib.Characteristic;
-import com.movisens.smartgattlib.Service;
-import com.movisens.smartgattlib.characteristics.HeartRateMeasurement;
+import com.movisens.smartgattlib.*;
+import com.movisens.smartgattlib.attributes.*;
+import com.movisens.smartgattlib.helper.*;
 
 public class Example {
 
@@ -10,27 +10,37 @@ public class Example {
         // onConnected
         // TODO: iterate over available services
         UUID serviceUuid = null;// service.getUuid();
-        if (Service.HEART_RATE.equals(serviceUuid)) {
+        if (Services.HEART_RATE.equals(serviceUuid)) {
 
             // TODO: iterate over characteristics
             UUID characteristicUuid = null;// characteristic.getUuid();
-            if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) {
-                // TODO: Enable notification
-                //BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptor.CLIENT_CHARACTERISTIC_CONFIGURATION);
-                //descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                //mBluetoothGatt.writeDescriptor(descriptor);
+            if (Characteristics.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) {
+                // TODO: Enable notification e.g. for Android API 18:
+                // BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptor.CLIENT_CHARACTERISTIC_CONFIGURATION);
+                // descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+                // mBluetoothGatt.writeDescriptor(descriptor);
             }
         } else {
-            System.out.println("Found unused Service: " + Service.lookup(serviceUuid, "unknown"));
+            System.out.println("Found unused Service: " + Services.lookup(serviceUuid));
         }
 
         // onCharacteristicChanged
-        UUID characteristicUuid = null;// characteristic.getUuid();
-        if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) {
-            byte[] value = null;// characteristic.getValue();
-            HeartRateMeasurement hrm = new HeartRateMeasurement(value);
-            hrm.getHr();
-            hrm.getEe();
+        UUID uuid = null;// characteristic.getUuid();
+        byte[] data = null;// characteristic.getValue();
+
+        AbstractAttribute a = Characteristics.lookup(uuid).createAttribute(data);
+        if (a instanceof HeartRateMeasurement) {
+            HeartRateMeasurement heartRateMeasurement = ((HeartRateMeasurement) a);
+            heartRateMeasurement.getHr();
+            heartRateMeasurement.getEe();
+        } else if (a instanceof DefaultAttribute) {
+            System.err.println("characteristic for " + uuid + " is unknown");
+        } else {
+            System.out.println("unused characteristic " + a.getCharacteristic().getName());
         }
+
+        // write Attribute
+        AbstractAttribute aa = new Weight(12.3);
+        // TODO: Write aa.getBytes() to aa.getCharacteristic().getUuid();
     }
 }

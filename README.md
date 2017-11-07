@@ -16,9 +16,7 @@ SmartGattLib is a Java library that simplifies the work with **Bluetooth SMART**
 The library has **no dependencies** and can be use with **every Bluetooth SMART stack** e.g.:
 
  * [Android API Level 18](http://developer.android.com/guide/topics/connectivity/bluetooth-le.html)
- * [Samsung BLE SDK](http://developer.samsung.com/ble)
- * [HTC OpenSense BLE API](http://www.htcdev.com/devcenter/opensense-sdk/partner-apis/bluetooth-low-energy/)
- * Motorola (seems obsolete)
+ * [RxAndroidBle](https://github.com/Polidea/RxAndroidBle)
 
 ### Integration ###
 Working with Bluetooth SMART devices is usually done in the following way:
@@ -41,7 +39,7 @@ Example Android project with SmartGattLib available [here](https://github.com/mo
 	    maven { url "https://jitpack.io" }
 	}
 	dependencies {
-	    compile 'com.github.movisens:SmartGattLib:1.7'
+	    compile 'com.github.movisens:SmartGattLib:3.0'
 	}
   ```
   or download the latest .jar file from the [releases](https://github.com/movisens/SmartGattLib/releases) page and place it in your Android app’s libs/ folder. 
@@ -50,34 +48,47 @@ Example Android project with SmartGattLib available [here](https://github.com/mo
 ### Example Usage ###
 ```java
 import com.movisens.smartgattlib.*;
+import com.movisens.smartgattlib.attributes.*;
+import com.movisens.smartgattlib.helper.*;
 
 // onConnected
-//TODO: iterate over available services
-UUID serviceUuid = service.getUuid();
-if (Service.HEART_RATE.equals(serviceUuid)) { // Identify Service
-	//TODO: iterate over characteristics
-	UUID characteristicUuid = characteristic.getUuid();
-	if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) { // Identify Characteristic
-		// TODO: Enable notification e.g. for Android API 18:
-		// BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptor.CLIENT_CHARACTERISTIC_CONFIGURATION);
-		// descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-		// mBluetoothGatt.writeDescriptor(descriptor);
-	}
-}else{
-	System.out.println("Found unused Service: " + Service.lookup(serviceUuid, "unknown"));
+// TODO: iterate over available services
+UUID serviceUuid = null;// service.getUuid();
+if (Services.HEART_RATE.getUuid().equals(serviceUuid)) {
+
+    // TODO: iterate over characteristics
+    UUID characteristicUuid = null;// characteristic.getUuid();
+    if (Characteristics.HEART_RATE_MEASUREMENT.getUuid().equals(characteristicUuid)) {
+        // TODO: Enable notification e.g. for Android API 18:
+        // BluetoothGattDescriptor descriptor = characteristic.getDescriptor(Descriptor.CLIENT_CHARACTERISTIC_CONFIGURATION);
+        // descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+        // mBluetoothGatt.writeDescriptor(descriptor);
+    }
+} else {
+    System.out.println("Found unused Service: " + Services.lookup(serviceUuid));
 }
 
 // onCharacteristicChanged
-UUID characteristicUuid = characteristic.getUuid();
-if (Characteristic.HEART_RATE_MEASUREMENT.equals(characteristicUuid)) { // Identify Characteristic
-	byte[] value = characteristic.getValue();
-	HeartRateMeasurement hrm = new HeartRateMeasurement(value); // Interpret Characteristic
-	System.out.println("HR: " + hrm.getHr() + "bpm");
-	System.out.println("EE: " + hrm.getEe() + "kJ");
+UUID uuid = null;// characteristic.getUuid();
+byte[] data = null;// characteristic.getValue();
+
+AbstractAttribute a = Characteristics.lookup(uuid).createAttribute(data);
+if (a instanceof HeartRateMeasurement) {
+    HeartRateMeasurement heartRateMeasurement = ((HeartRateMeasurement) a);
+    heartRateMeasurement.getHr();
+    heartRateMeasurement.getEe();
+} else if (a instanceof DefaultAttribute) {
+    System.err.println("characteristic for " + uuid + " is unknown");
+} else {
+    System.out.println("unused characteristic " + a.getCharacteristic().getName());
 }
+
+// write Attribute
+AbstractAttribute aa = new Weight(12.3);
+// TODO: Write aa.getBytes() to aa.getCharacteristic().getUuid();
 ```
 ### License ###
-Copyright 2013 movisens GmbH
+Copyright 2017 movisens GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

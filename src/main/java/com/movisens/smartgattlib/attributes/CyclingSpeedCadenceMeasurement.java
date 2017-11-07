@@ -1,10 +1,14 @@
-package com.movisens.smartgattlib.characteristics;
+package com.movisens.smartgattlib.attributes;
 
-import com.movisens.smartgattlib.GattByteBuffer;
+import com.movisens.smartgattlib.Characteristics;
 import com.movisens.smartgattlib.GattUtils;
-import com.movisens.smartgattlib.characteristics.definition.AbstractReadOnlyCharacteristic;
+import com.movisens.smartgattlib.helper.AbstractReadAttribute;
+import com.movisens.smartgattlib.helper.Characteristic;
+import com.movisens.smartgattlib.helper.GattByteBuffer;
 
-public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacteristic<Number[]> {
+public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
+
+    public static final Characteristic CHARACTERISTIC = Characteristics.CSC_MEASUREMENT;
 
     public static final int MAX_CUMULATIVE_CRANK_REVS = 65535;
     public static final long MAX_CUMULATIVE_WHEEL_REVS = 4294967295L;
@@ -17,13 +21,9 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
     private int cumulativeCrankRevolutions;
     private int lastCrankEventTime;
 
-    public CyclingSpeedCadenceMeasurement(byte[] bytes) {
-        super(bytes);
-    }
-
-    @Override
-    protected Number[] getValueForBytes(byte[] bytes) {
-        GattByteBuffer bb = GattByteBuffer.wrap(bytes);
+    public CyclingSpeedCadenceMeasurement(byte[] data) {
+        this.data = data;
+        GattByteBuffer bb = GattByteBuffer.wrap(data);
 
         byte flags = bb.getInt8();
         wheelRevPresent = wheelRevPresent(flags);
@@ -38,7 +38,6 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
             cumulativeCrankRevolutions = bb.getUint16();
             lastCrankEventTime = bb.getUint16();
         }
-        return new Number[]{cumulativeWheelRevolutions, lastWheelEventTime, cumulativeCrankRevolutions, lastCrankEventTime};
     }
 
     public boolean isWheelRevPresent() {
@@ -54,7 +53,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
     }
 
     //unit has resolution of 1/1024s
-    public int getLastWheelEventTime() {
+    public int getWheelEventTime() {
         return lastWheelEventTime;
     }
 
@@ -63,7 +62,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
     }
 
     //unit has resolution of 1/1024s
-    public int getLastCrankEventTime() {
+    public int getCrankEventTime() {
         return lastCrankEventTime;
     }
 
@@ -73,6 +72,11 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadOnlyCharacterist
 
     private boolean crankRevPresent(byte flags) {
         return (flags & GattUtils.SECOND_BITMASK) != 0;
+    }
+
+    @Override
+    public Characteristic getCharacteristic() {
+        return CHARACTERISTIC;
     }
 
     @Override
