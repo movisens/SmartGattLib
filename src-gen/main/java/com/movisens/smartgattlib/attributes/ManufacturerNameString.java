@@ -38,6 +38,6 @@ public class ManufacturerNameString extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Manufacturer Name String: " + "manufacturer_Name = " + getManufacturer_Name() + " " + getManufacturer_NameUnit();
+		return "Manufacturer Name String: " + "manufacturer_Name = " + getManufacturer_Name();
 	}
 }

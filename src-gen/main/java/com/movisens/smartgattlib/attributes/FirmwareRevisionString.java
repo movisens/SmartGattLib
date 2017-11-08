@@ -38,6 +38,6 @@ public class FirmwareRevisionString extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Firmware Revision String: " + "firmware_Revision = " + getFirmware_Revision() + " " + getFirmware_RevisionUnit();
+		return "Firmware Revision String: " + "firmware_Revision = " + getFirmware_Revision();
 	}
 }

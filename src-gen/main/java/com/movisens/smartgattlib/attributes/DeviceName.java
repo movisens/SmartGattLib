@@ -38,6 +38,6 @@ public class DeviceName extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Device Name: " + "name = " + getName() + " " + getNameUnit();
+		return "Device Name: " + "name = " + getName();
 	}
 }

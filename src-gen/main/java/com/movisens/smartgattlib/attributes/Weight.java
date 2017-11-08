@@ -46,6 +46,6 @@ public class Weight extends AbstractReadWriteAttribute
 	@Override
 	public String toString()
 	{
-		return "Weight: " + "weight = " + getWeight() + " " + getWeightUnit();
+		return "Weight: " + "weight = " + getWeight() + getWeightUnit();
 	}
 }

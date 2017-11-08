@@ -38,6 +38,6 @@ public class Appearance extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Appearance: " + "category = " + getCategory() + " " + getCategoryUnit();
+		return "Appearance: " + "category = " + getCategory();
 	}
 }

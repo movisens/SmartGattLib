@@ -46,6 +46,6 @@ public class Gender extends AbstractReadWriteAttribute
 	@Override
 	public String toString()
 	{
-		return "Gender: " + "gender = " + getGender() + " " + getGenderUnit();
+		return "Gender: " + "gender = " + getGender();
 	}
 }

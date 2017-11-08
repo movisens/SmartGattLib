@@ -38,6 +38,6 @@ public class ModelNumberString extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Model Number String: " + "model_Number = " + getModel_Number() + " " + getModel_NumberUnit();
+		return "Model Number String: " + "model_Number = " + getModel_Number();
 	}
 }
