@@ -25,3 +25,8 @@ dist/
 *.iml
 *.ipr
 *.iws
+
+# eclipse files
+.project
+.classpath
+.settings/
