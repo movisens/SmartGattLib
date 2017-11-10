@@ -239,6 +239,11 @@ public class GattByteBuffer
         return new Date(getUint32()*1000);
     }
 
+    public Date getMstime()
+    {
+        return new Date(getInt64());
+    }
+
     public UUID getUuid()
     {
         int length = buffer.remaining();
