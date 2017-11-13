@@ -28,7 +28,7 @@ public class BodySensorLocation extends AbstractReadAttribute {
     public BodySensorLocation(byte[] data)
     {
         this.data = data;
-        Location location = Location.Other;
+        location = Location.Other;
         int loc = GattByteBuffer.wrap(data).getUint8();
 
         switch (loc) {

@@ -2,8 +2,6 @@ package com.movisens.smartgattlib.helper;
 
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
 
-import java.util.UUID;
-
 public class Characteristic extends UuidObject
 {
 
