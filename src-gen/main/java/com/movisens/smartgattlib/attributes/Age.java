@@ -46,6 +46,6 @@ public class Age extends AbstractReadWriteAttribute
 	@Override
 	public String toString()
 	{
-		return "Age: " + "age = " + getAge();
+		return getAge().toString();
 	}
 }

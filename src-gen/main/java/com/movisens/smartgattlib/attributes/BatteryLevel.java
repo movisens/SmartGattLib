@@ -38,6 +38,6 @@ public class BatteryLevel extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Battery Level: " + "level = " + getLevel() + getLevelUnit();
+		return getLevel().toString() + getLevelUnit();
 	}
 }

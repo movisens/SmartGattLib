@@ -30,4 +30,10 @@ public class Characteristic extends UuidObject
     {
         return attributeClass;
     }
+    
+    @Override
+    public String toString()
+    {
+        return getName();
+    }
 }

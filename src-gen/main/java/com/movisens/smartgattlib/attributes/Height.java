@@ -46,6 +46,6 @@ public class Height extends AbstractReadWriteAttribute
 	@Override
 	public String toString()
 	{
-		return "Height: " + "heigt = " + getHeigt() + getHeigtUnit();
+		return getHeigt().toString() + getHeigtUnit();
 	}
 }

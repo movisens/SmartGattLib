@@ -38,6 +38,6 @@ public class SerialNumberString extends AbstractReadAttribute
 	@Override
 	public String toString()
 	{
-		return "Serial Number String: " + "serial_Number = " + getSerial_Number();
+		return getSerial_Number().toString();
 	}
 }
