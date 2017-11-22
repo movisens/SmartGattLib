@@ -91,7 +91,7 @@ public class GattByteBuffer
         String result = "";
         byte c;
 
-        while (((c = buffer.get()) != 0) && buffer.hasRemaining())
+        while (buffer.hasRemaining() && ((c = buffer.get()) != 0))
         {
             result += (char) c;
         }
