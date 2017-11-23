@@ -2,7 +2,20 @@ package com.movisens.smartgattlib;
 
 import java.util.UUID;
 
-import com.movisens.smartgattlib.attributes.*;
+import com.movisens.smartgattlib.attributes.DefaultAttribute;
+import com.movisens.smartgattlib.attributes.BatteryLevel;
+import com.movisens.smartgattlib.attributes.ModelNumberString;
+import com.movisens.smartgattlib.attributes.FirmwareRevisionString;
+import com.movisens.smartgattlib.attributes.Gender;
+import com.movisens.smartgattlib.attributes.DateOfBirth;
+import com.movisens.smartgattlib.attributes.HeartRateMeasurement;
+import com.movisens.smartgattlib.attributes.Height;
+import com.movisens.smartgattlib.attributes.Appearance;
+import com.movisens.smartgattlib.attributes.ManufacturerNameString;
+import com.movisens.smartgattlib.attributes.DeviceName;
+import com.movisens.smartgattlib.attributes.Age;
+import com.movisens.smartgattlib.attributes.Weight;
+import com.movisens.smartgattlib.attributes.SerialNumberString;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.UuidObjectMap;
 
@@ -154,7 +167,6 @@ public class Characteristics
 	public static final Characteristic PRESSURE = new Characteristic("2a6d", "Pressure", DefaultAttribute.class);
 	public static final Characteristic PROTOCOL_MODE = new Characteristic("2a4e", "Protocol Mode", DefaultAttribute.class);
 	public static final Characteristic PULSE_OXIMETRY_CONTROL_POINT = new Characteristic("2a62", "Pulse Oximetry Control Point", DefaultAttribute.class);
-	public static final Characteristic PULSE_OXIMETRY_PULSATILE_EVENT = new Characteristic("2a60", "Pulse Oximetry Pulsatile Event Characteristic", DefaultAttribute.class);
 	public static final Characteristic RAINFALL = new Characteristic("2a78", "Rainfall", DefaultAttribute.class);
 	public static final Characteristic RECONNECTION_ADDRESS = new Characteristic("2a03", "Reconnection Address", DefaultAttribute.class);
 	public static final Characteristic RECORD_ACCESS_CONTROL_POINT = new Characteristic("2a52", "Record Access Control Point", DefaultAttribute.class);
@@ -372,7 +384,6 @@ public class Characteristics
 		characteristics.put(PRESSURE);
 		characteristics.put(PROTOCOL_MODE);
 		characteristics.put(PULSE_OXIMETRY_CONTROL_POINT);
-		characteristics.put(PULSE_OXIMETRY_PULSATILE_EVENT);
 		characteristics.put(RAINFALL);
 		characteristics.put(RECONNECTION_ADDRESS);
 		characteristics.put(RECORD_ACCESS_CONTROL_POINT);

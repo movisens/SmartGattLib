@@ -12,8 +12,14 @@ public abstract class AbstractAttribute
 
     public abstract Characteristic getCharacteristic();
 
-    public abstract boolean isReadable();
+    public boolean isReadable()
+    {
+        return false;
+    }
 
-    public abstract boolean isWritable();
+    public boolean isWritable()
+    {
+        return false;
+    }
 
 }

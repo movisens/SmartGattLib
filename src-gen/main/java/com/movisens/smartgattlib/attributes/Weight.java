@@ -24,6 +24,14 @@ public class Weight extends AbstractReadWriteAttribute
 	
 	public Weight(Double weight)
 	{
+		if(weight<0.0)
+		{
+			throw new RuntimeException("weight out of range! Min value is 0.0");
+		}
+		if(weight>327.68)
+		{
+			throw new RuntimeException("weight out of range! Max value is 327.68");
+		}
 		this.weight = weight;
 		GattByteBuffer bb = GattByteBuffer.allocate(2);
 		bb.putUint16(new Double(weight / 0.005).intValue());

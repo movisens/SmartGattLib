@@ -24,6 +24,14 @@ public class Height extends AbstractReadWriteAttribute
 	
 	public Height(Double heigt)
 	{
+		if(heigt<0.0)
+		{
+			throw new RuntimeException("heigt out of range! Min value is 0.0");
+		}
+		if(heigt>3.0)
+		{
+			throw new RuntimeException("heigt out of range! Max value is 3.0");
+		}
 		this.heigt = heigt;
 		GattByteBuffer bb = GattByteBuffer.allocate(2);
 		bb.putUint16(new Double(heigt / 0.01).intValue());
