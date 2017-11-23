@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
 import com.movisens.smartgattlib.attributes.BatteryLevel;
+import com.movisens.smartgattlib.attributes.BodySensorLocation;
+import com.movisens.smartgattlib.attributes.CyclingSpeedCadenceMeasurement;
 import com.movisens.smartgattlib.attributes.ModelNumberString;
 import com.movisens.smartgattlib.attributes.FirmwareRevisionString;
 import com.movisens.smartgattlib.attributes.Gender;
