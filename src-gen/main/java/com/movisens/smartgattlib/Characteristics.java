@@ -2,25 +2,11 @@ package com.movisens.smartgattlib;
 
 import java.util.UUID;
 
-import com.movisens.smartgattlib.attributes.Age;
-import com.movisens.smartgattlib.attributes.Appearance;
-import com.movisens.smartgattlib.attributes.BatteryLevel;
-import com.movisens.smartgattlib.attributes.BodySensorLocation;
-import com.movisens.smartgattlib.attributes.CyclingSpeedCadenceMeasurement;
-import com.movisens.smartgattlib.attributes.DateOfBirth;
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
-import com.movisens.smartgattlib.attributes.DeviceName;
-import com.movisens.smartgattlib.attributes.FirmwareRevisionString;
-import com.movisens.smartgattlib.attributes.Gender;
-import com.movisens.smartgattlib.attributes.HeartRateMeasurement;
-import com.movisens.smartgattlib.attributes.Height;
-import com.movisens.smartgattlib.attributes.ManufacturerNameString;
-import com.movisens.smartgattlib.attributes.ModelNumberString;
-import com.movisens.smartgattlib.attributes.SerialNumberString;
-import com.movisens.smartgattlib.attributes.Weight;
-import com.movisens.smartgattlib.helper.AbstractAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.UuidObjectMap;
+import com.movisens.smartgattlib.helper.AbstractAttribute;
+import com.movisens.smartgattlib.attributes.*;
 
 public class Characteristics
 {
