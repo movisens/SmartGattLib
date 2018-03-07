@@ -10,7 +10,7 @@ public abstract class AbstractAttribute
         return data;
     }
 
-    public abstract Characteristic getCharacteristic();
+    public abstract Characteristic<? extends AbstractAttribute> getCharacteristic();
 
     public boolean isReadable()
     {

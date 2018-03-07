@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class ManufacturerNameString extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.MANUFACTURER_NAME_STRING;
+	public static final Characteristic<ManufacturerNameString> CHARACTERISTIC = Characteristics.MANUFACTURER_NAME_STRING;
 	
 	private String manufacturer_Name;
 	
@@ -30,7 +30,7 @@ public class ManufacturerNameString extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<ManufacturerNameString> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

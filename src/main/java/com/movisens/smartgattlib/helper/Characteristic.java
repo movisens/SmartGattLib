@@ -2,12 +2,12 @@ package com.movisens.smartgattlib.helper;
 
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
 
-public class Characteristic extends UuidObject
+public class Characteristic<T extends AbstractAttribute> extends UuidObject
 {
 
-    private Class<? extends AbstractAttribute> attributeClass;
+    private Class<T> attributeClass;
 
-    public Characteristic(String uuid, String name, Class<? extends AbstractAttribute> attributeClass)
+    public Characteristic(String uuid, String name, Class<T> attributeClass)
     {
         super(uuid, name);
          this.attributeClass = attributeClass;
@@ -26,7 +26,7 @@ public class Characteristic extends UuidObject
         }
     }
     
-    public Class<? extends AbstractAttribute> getAttributeClass()
+    public Class<T> getAttributeClass()
     {
         return attributeClass;
     }

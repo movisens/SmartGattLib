@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class DateOfBirth extends AbstractReadWriteAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.DATE_OF_BIRTH;
+	public static final Characteristic<DateOfBirth> CHARACTERISTIC = Characteristics.DATE_OF_BIRTH;
 	
 	private Integer year;
 	private Short month;
@@ -66,7 +66,7 @@ public class DateOfBirth extends AbstractReadWriteAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<DateOfBirth> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

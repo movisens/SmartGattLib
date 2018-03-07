@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class ModelNumberString extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.MODEL_NUMBER_STRING;
+	public static final Characteristic<ModelNumberString> CHARACTERISTIC = Characteristics.MODEL_NUMBER_STRING;
 	
 	private String model_Number;
 	
@@ -30,7 +30,7 @@ public class ModelNumberString extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<ModelNumberString> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

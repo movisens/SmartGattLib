@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class SerialNumberString extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.SERIAL_NUMBER_STRING;
+	public static final Characteristic<SerialNumberString> CHARACTERISTIC = Characteristics.SERIAL_NUMBER_STRING;
 	
 	private String serial_Number;
 	
@@ -30,7 +30,7 @@ public class SerialNumberString extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<SerialNumberString> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

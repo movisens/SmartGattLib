@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class BatteryLevel extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.BATTERY_LEVEL;
+	public static final Characteristic<BatteryLevel> CHARACTERISTIC = Characteristics.BATTERY_LEVEL;
 	
 	private Double level;
 	
@@ -30,7 +30,7 @@ public class BatteryLevel extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<BatteryLevel> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

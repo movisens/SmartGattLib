@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class Age extends AbstractReadWriteAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.AGE;
+	public static final Characteristic<Age> CHARACTERISTIC = Characteristics.AGE;
 	
 	private Short age;
 	
@@ -38,7 +38,7 @@ public class Age extends AbstractReadWriteAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<Age> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

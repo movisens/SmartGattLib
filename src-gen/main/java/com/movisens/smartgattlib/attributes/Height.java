@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class Height extends AbstractReadWriteAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.HEIGHT;
+	public static final Characteristic<Height> CHARACTERISTIC = Characteristics.HEIGHT;
 	
 	private Double heigt;
 	
@@ -46,7 +46,7 @@ public class Height extends AbstractReadWriteAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<Height> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class Weight extends AbstractReadWriteAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.WEIGHT;
+	public static final Characteristic<Weight> CHARACTERISTIC = Characteristics.WEIGHT;
 	
 	private Double weight;
 	
@@ -46,7 +46,7 @@ public class Weight extends AbstractReadWriteAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<Weight> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

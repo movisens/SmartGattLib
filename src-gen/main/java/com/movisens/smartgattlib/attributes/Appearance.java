@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class Appearance extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.APPEARANCE;
+	public static final Characteristic<Appearance> CHARACTERISTIC = Characteristics.APPEARANCE;
 	
 	private Short category;
 	
@@ -30,7 +30,7 @@ public class Appearance extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<Appearance> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

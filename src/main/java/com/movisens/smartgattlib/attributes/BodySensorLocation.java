@@ -11,7 +11,7 @@ public class BodySensorLocation extends AbstractReadAttribute {
         Other, Chest, Wrist, Finger, Hand, Ear_Lobe, Foot;
     }
 
-    public static final Characteristic CHARACTERISTIC = Characteristics.BODY_SENSOR_LOCATION;
+    public static final Characteristic<BodySensorLocation> CHARACTERISTIC = Characteristics.BODY_SENSOR_LOCATION;
 
     private Location location;
 
@@ -57,7 +57,7 @@ public class BodySensorLocation extends AbstractReadAttribute {
     }
 
     @Override
-    public Characteristic getCharacteristic()
+    public Characteristic<BodySensorLocation> getCharacteristic()
     {
         return CHARACTERISTIC;
     }

@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class DeviceName extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.DEVICE_NAME;
+	public static final Characteristic<DeviceName> CHARACTERISTIC = Characteristics.DEVICE_NAME;
 	
 	private String name;
 	
@@ -30,7 +30,7 @@ public class DeviceName extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<DeviceName> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

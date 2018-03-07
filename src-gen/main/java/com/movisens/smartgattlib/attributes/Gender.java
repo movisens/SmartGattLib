@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class Gender extends AbstractReadWriteAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.GENDER;
+	public static final Characteristic<Gender> CHARACTERISTIC = Characteristics.GENDER;
 	
 	private EnumGender gender;
 	
@@ -38,7 +38,7 @@ public class Gender extends AbstractReadWriteAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<Gender> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}

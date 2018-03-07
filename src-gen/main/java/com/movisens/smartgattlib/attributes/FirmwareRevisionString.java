@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class FirmwareRevisionString extends AbstractReadAttribute
 {
 
-	public static final Characteristic CHARACTERISTIC = Characteristics.FIRMWARE_REVISION_STRING;
+	public static final Characteristic<FirmwareRevisionString> CHARACTERISTIC = Characteristics.FIRMWARE_REVISION_STRING;
 	
 	private String firmware_Revision;
 	
@@ -30,7 +30,7 @@ public class FirmwareRevisionString extends AbstractReadAttribute
 	}
 
 	@Override
-	public Characteristic getCharacteristic()
+	public Characteristic<FirmwareRevisionString> getCharacteristic()
 	{
 		return CHARACTERISTIC;
 	}
