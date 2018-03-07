@@ -1,12 +1,10 @@
-import com.movisens.smartgattlib.attributes.Weight;
-import com.movisens.smartgattlib.helper.GattByteBuffer;
-import org.junit.Test;
-
-import java.util.Arrays;
-
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+import com.movisens.smartgattlib.attributes.Weight;
+import com.movisens.smartgattlib.helper.GattByteBuffer;
 
 /**
  * Created by robert.zetzsche on 17.05.2017.

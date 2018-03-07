@@ -8,7 +8,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 
 public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
 
-    public static final Characteristic CHARACTERISTIC = Characteristics.CSC_MEASUREMENT;
+    public static final Characteristic<CyclingSpeedCadenceMeasurement> CHARACTERISTIC = Characteristics.CSC_MEASUREMENT;
 
     public static final int MAX_CUMULATIVE_CRANK_REVS = 65535;
     public static final long MAX_CUMULATIVE_WHEEL_REVS = 4294967295L;
@@ -75,7 +75,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
     }
 
     @Override
-    public Characteristic getCharacteristic() {
+    public Characteristic<CyclingSpeedCadenceMeasurement> getCharacteristic() {
         return CHARACTERISTIC;
     }
 

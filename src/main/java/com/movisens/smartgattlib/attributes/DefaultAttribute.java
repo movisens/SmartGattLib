@@ -13,7 +13,7 @@ public class DefaultAttribute extends AbstractAttribute
     }
 
     @Override
-    public Characteristic getCharacteristic()
+    public Characteristic<DefaultAttribute> getCharacteristic()
     {
         return Characteristics.DEFAULT;
     }

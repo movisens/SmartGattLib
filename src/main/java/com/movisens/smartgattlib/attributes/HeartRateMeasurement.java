@@ -11,7 +11,7 @@ import com.movisens.smartgattlib.helper.GattByteBuffer;
 public class HeartRateMeasurement extends AbstractReadAttribute
 {
 
-    public static final Characteristic CHARACTERISTIC = Characteristics.HEART_RATE_MEASUREMENT;
+    public static final Characteristic<HeartRateMeasurement> CHARACTERISTIC = Characteristics.HEART_RATE_MEASUREMENT;
 
     ArrayList<Float> rrIntervals = new ArrayList<Float>();
     int hrmval = 0;
@@ -97,7 +97,7 @@ public class HeartRateMeasurement extends AbstractReadAttribute
     }
 
     @Override
-    public Characteristic getCharacteristic()
+    public Characteristic<HeartRateMeasurement> getCharacteristic()
     {
         return CHARACTERISTIC;
     }
