@@ -40,6 +40,7 @@ public class Example {
         }
 
         // write Attribute
+        @SuppressWarnings("unused")
         AbstractAttribute aa = new Weight(12.3);
         // TODO: Write aa.getBytes() to aa.getCharacteristic().getUuid();
     }
