@@ -56,7 +56,7 @@ public class Characteristics
 	public static final Characteristic<DefaultAttribute> CGM_STATUS = new Characteristic<DefaultAttribute>("2aa9", "CGM Status", DefaultAttribute.class);
 	public static final Characteristic<DefaultAttribute> CROSS_TRAINER_DATA = new Characteristic<DefaultAttribute>("2ace", "Cross Trainer Data", DefaultAttribute.class);
 	public static final Characteristic<DefaultAttribute> CSC_FEATURE = new Characteristic<DefaultAttribute>("2a5c", "CSC Feature", DefaultAttribute.class);
-	public static final Characteristic<CyclingSpeedCadenceMeasurement> CSC_MEASUREMENT = new Characteristic<CyclingSpeedCadenceMeasurement>("2a5b", "CSC Measurement", CyclingSpeedCadenceMeasurement.class);
+	public static final Characteristic<CscMeasurement> CSC_MEASUREMENT = new Characteristic<CscMeasurement>("2a5b", "CSC Measurement", CscMeasurement.class);
 	public static final Characteristic<DefaultAttribute> CURRENT_TIME = new Characteristic<DefaultAttribute>("2a2b", "Current Time", DefaultAttribute.class);
 	public static final Characteristic<DefaultAttribute> CYCLING_POWER_CONTROL_POINT = new Characteristic<DefaultAttribute>("2a66", "Cycling Power Control Point", DefaultAttribute.class);
 	public static final Characteristic<DefaultAttribute> CYCLING_POWER_FEATURE = new Characteristic<DefaultAttribute>("2a65", "Cycling Power Feature", DefaultAttribute.class);

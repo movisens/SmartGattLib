@@ -1,5 +1,5 @@
 import com.movisens.smartgattlib.GattUtils;
-import com.movisens.smartgattlib.attributes.CyclingSpeedCadenceMeasurement;
+import com.movisens.smartgattlib.attributes.CscMeasurement;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class CyclingSpeedCadenceMeasurementTest {
     @Test
     public void testCCM() {
         byte[] testValue = GattUtils.hexStringToByteArray("032D060000A3A9900A289F");
-        CyclingSpeedCadenceMeasurement ccm = new CyclingSpeedCadenceMeasurement(testValue);
+        CscMeasurement ccm = new CscMeasurement(testValue);
         assertTrue("Wheel rev should be present", ccm.isWheelRevPresent());
         assertTrue("Crank rev should be present", ccm.isCrankRevPresent());
         assertTrue("Cumulative crank revolutions should be 2704", ccm.getCumulativeCrankRevolutions() == 2704);

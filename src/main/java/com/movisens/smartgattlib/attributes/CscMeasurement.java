@@ -6,9 +6,9 @@ import com.movisens.smartgattlib.helper.AbstractReadAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 
-public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
+public class CscMeasurement extends AbstractReadAttribute {
 
-    public static final Characteristic<CyclingSpeedCadenceMeasurement> CHARACTERISTIC = Characteristics.CSC_MEASUREMENT;
+    public static final Characteristic<CscMeasurement> CHARACTERISTIC = Characteristics.CSC_MEASUREMENT;
 
     public static final int MAX_CUMULATIVE_CRANK_REVS = 65535;
     public static final long MAX_CUMULATIVE_WHEEL_REVS = 4294967295L;
@@ -21,7 +21,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
     private int cumulativeCrankRevolutions;
     private int lastCrankEventTime;
 
-    public CyclingSpeedCadenceMeasurement(byte[] data) {
+    public CscMeasurement(byte[] data) {
         this.data = data;
         GattByteBuffer bb = GattByteBuffer.wrap(data);
 
@@ -75,7 +75,7 @@ public class CyclingSpeedCadenceMeasurement extends AbstractReadAttribute {
     }
 
     @Override
-    public Characteristic<CyclingSpeedCadenceMeasurement> getCharacteristic() {
+    public Characteristic<CscMeasurement> getCharacteristic() {
         return CHARACTERISTIC;
     }
 
