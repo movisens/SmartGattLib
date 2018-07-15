@@ -21,5 +21,17 @@ public abstract class AbstractAttribute
     {
         return false;
     }
+    
+    @Override
+    public String toString()
+    {
+        String result = "";
+        for(byte b : data)
+        {
+            result += String.format("0x%02x ", b);
+        }
+
+        return result;
+    }
 
 }
