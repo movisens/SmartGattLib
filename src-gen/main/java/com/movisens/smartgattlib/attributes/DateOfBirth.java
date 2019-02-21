@@ -74,6 +74,6 @@ public class DateOfBirth extends AbstractReadWriteAttribute
 	@Override
 	public String toString()
 	{
-		return "year = " + getYear() + ", " + "month = " + getMonth() + ", " + "day = " + getDay();
+		return "year = " + getYear().toString() + ", " + "month = " + getMonth().toString() + ", " + "day = " + getDay().toString();
 	}
 }

@@ -1,5 +1,6 @@
 package com.movisens.smartgattlib;
 
+import java.util.Collection;
 import java.util.UUID;
 
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
@@ -442,7 +443,17 @@ public class Characteristics
 		characteristics.put(WEIGHT_SCALE_FEATURE);
 		characteristics.put(WIND_CHILL);
 	}
-
+	
+	/**
+	 * Get all Characteristics.
+	 *
+	 * @return all available Characteristics
+	 */
+	public static Collection<Characteristic<? extends AbstractAttribute>> getCharacteristics()
+	{
+		return characteristics.getValues();
+	}
+	
 	/**
 	 * Looks up the characteristic for the given UUID. If the UUID is not found, a lookup in the smartgattlib is performed.
 	 * 
