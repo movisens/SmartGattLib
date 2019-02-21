@@ -1,3 +1,8 @@
+<a name="3.1.0"></a>
+# [3.1.0] (2019-02-21)
+
+ - Added getCharacteristics to obtain all Characteristics as a Collection
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/movisens/SmartGattLib/compare/v2.1...v3.0) (2017-11-07)
 
