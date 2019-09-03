@@ -45,7 +45,7 @@ jar {
         attributes (
 		'Bundle-SymbolicName': project.group + project.name,
 		'Bundle-Version': project.version,
-		'Export-Package': 'com.movisens.smartgattlib'
+		'Export-Package': 'com.movisens.smartgattlib, com.movisens.smartgattlib.*'
         )
     }
 }
