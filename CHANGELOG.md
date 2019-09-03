@@ -1,3 +1,8 @@
+<a name="3.2.0"></a>
+# [3.2.0] (2019-09-03)
+
+ - Added putMstime to GattByteBuffer
+
 <a name="3.1.0"></a>
 # [3.1.0] (2019-02-21)
 
