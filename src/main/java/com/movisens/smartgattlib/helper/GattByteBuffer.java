@@ -2,6 +2,7 @@ package com.movisens.smartgattlib.helper;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.UUID;
 
@@ -247,6 +248,20 @@ public class GattByteBuffer
     public Date getMstime()
     {
         return new Date(getInt64());
+    }
+
+    public void putTimeZone(java.time.ZoneId zoneId)
+    {
+        String ltzs = zoneId.getId();
+        String stzs = TimeZoneUtil.toShortTimeZone(ltzs);
+        putString(stzs);
+    }
+ 
+    public java.time.ZoneId getTimeZone()
+    {
+       String stzs = getString();
+       String ltzs = TimeZoneUtil.toLongTimeZone(stzs);
+       return ZoneId.of(ltzs);
     }
 
     public UUID getUuid()
