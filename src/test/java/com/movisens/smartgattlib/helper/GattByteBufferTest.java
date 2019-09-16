@@ -19,9 +19,9 @@ public class GattByteBufferTest
         {
             GattByteBuffer bb = GattByteBuffer.allocate(20);
             ZoneId ptz = ZoneId.of(zId);
-            bb.putTimeZone(ptz);
+            bb.putTimezone(ptz);
             bb.rewind();
-            ZoneId gtz = bb.getTimeZone();
+            ZoneId gtz = bb.getTimezone();
             assertTrue(gtz.equals(ptz));
         }
     }

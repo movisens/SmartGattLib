@@ -250,14 +250,14 @@ public class GattByteBuffer
         return new Date(getInt64());
     }
 
-    public void putTimeZone(java.time.ZoneId zoneId)
+    public void putTimezone(java.time.ZoneId zoneId)
     {
         String ltzs = zoneId.getId();
         String stzs = TimeZoneUtil.toShortTimeZone(ltzs);
         putString(stzs);
     }
  
-    public java.time.ZoneId getTimeZone()
+    public java.time.ZoneId getTimezone()
     {
        String stzs = getString();
        String ltzs = TimeZoneUtil.toLongTimeZone(stzs);
