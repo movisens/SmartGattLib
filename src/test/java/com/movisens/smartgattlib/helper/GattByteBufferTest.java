@@ -18,11 +18,11 @@ public class GattByteBufferTest
         for (String zId : zIds)
         {
             GattByteBuffer bb = GattByteBuffer.allocate(20);
-            ZoneId ptz = ZoneId.of(zId);
-            bb.putTimezone(ptz);
+
+            bb.putTimezone(zId);
             bb.rewind();
-            ZoneId gtz = bb.getTimezone();
-            assertTrue(gtz.equals(ptz));
+            String gtz = bb.getTimezone();
+            assertTrue(gtz.equals(zId));
         }
     }
 
