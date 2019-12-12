@@ -34,7 +34,7 @@ public class Height extends AbstractReadWriteAttribute
 		}
 		this.heigt = heigt;
 		GattByteBuffer bb = GattByteBuffer.allocate(2);
-		bb.putUint16(new Double(heigt / 0.01).intValue());
+		bb.putUint16(new Long(Math.round(heigt / 0.01)).intValue());
 		this.data = bb.array();
 	}
 
