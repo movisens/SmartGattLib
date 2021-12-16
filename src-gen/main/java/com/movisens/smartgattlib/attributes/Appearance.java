@@ -4,8 +4,9 @@ import com.movisens.smartgattlib.Characteristics;
 import com.movisens.smartgattlib.helper.AbstractReadAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
+import com.movisens.smartgattlib.helper.PlainTextAttribute;
 
-public class Appearance extends AbstractReadAttribute
+public class Appearance extends AbstractReadAttribute implements PlainTextAttribute
 {
 
 	public static final Characteristic<Appearance> CHARACTERISTIC = Characteristics.APPEARANCE;

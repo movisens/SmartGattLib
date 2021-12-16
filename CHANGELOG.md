@@ -1,3 +1,10 @@
+<a name="4.0.0"></a>
+# [4.0.0]
+
+- allowed encryption of over the air data 
+- the method getBytes of AbstractAttribute was renamed to getOutgoingData
+- to get the raw data representation of an attribute the method getRawData was added to AbstractAttribute
+
 <a name="3.2.0"></a>
 # [3.2.0] (2019-09-03)
 
