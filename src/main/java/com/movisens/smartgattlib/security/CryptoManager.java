@@ -11,7 +11,12 @@ public class CryptoManager
         secretKey = AesUtil.createAesKey(password);
     }
 
-    public void removePassword()
+    public void initialize()
+    {
+        disableEncryption();
+    }
+    
+    public void disableEncryption()
     {
         secretKey = null;
     }
