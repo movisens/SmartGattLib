@@ -1,6 +1,6 @@
 package com.movisens.smartgattlib.helper;
 
-import com.movisens.smartgattlib.security.CryptoManagerProvider;
+import com.movisens.smartgattlib.security.CryptoManager;
 
 public abstract class AbstractAttribute
 {
@@ -12,11 +12,11 @@ public abstract class AbstractAttribute
      * 
      * @return data to send via BLE
      */
-    public byte[] getOutgoingData()
+    public byte[] getOutgoingData(CryptoManager cryptoManager)
     {
         if (getCharacteristic().isEncryptionAllowed())
         {
-            return CryptoManagerProvider.get().processBeforeSend(data);
+            return cryptoManager.processBeforeSend(data);
         }
         else
         {

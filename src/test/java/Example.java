@@ -1,8 +1,12 @@
 import java.util.UUID;
 
-import com.movisens.smartgattlib.*;
-import com.movisens.smartgattlib.attributes.*;
-import com.movisens.smartgattlib.helper.*;
+import com.movisens.smartgattlib.Characteristics;
+import com.movisens.smartgattlib.Services;
+import com.movisens.smartgattlib.attributes.DefaultAttribute;
+import com.movisens.smartgattlib.attributes.HeartRateMeasurement;
+import com.movisens.smartgattlib.attributes.Weight;
+import com.movisens.smartgattlib.helper.AbstractAttribute;
+import com.movisens.smartgattlib.security.CryptoManager;
 
 public class Example {
 
@@ -28,7 +32,9 @@ public class Example {
         UUID uuid = null;// characteristic.getUuid();
         byte[] data = null;// characteristic.getValue();
 
-        AbstractAttribute a = Characteristics.lookup(uuid).createAttribute(data);
+        CryptoManager cryptoManager = new CryptoManager();
+        
+        AbstractAttribute a = Characteristics.lookup(uuid).createAttribute(cryptoManager, data);
         if (a instanceof HeartRateMeasurement) {
             HeartRateMeasurement heartRateMeasurement = ((HeartRateMeasurement) a);
             heartRateMeasurement.getHr();

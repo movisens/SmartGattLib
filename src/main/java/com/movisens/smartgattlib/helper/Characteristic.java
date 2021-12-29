@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 
 import com.movisens.smartgattlib.attributes.DefaultAttribute;
-import com.movisens.smartgattlib.security.CryptoManagerProvider;
+import com.movisens.smartgattlib.security.CryptoManager;
 
 public class Characteristic<T extends AbstractAttribute> extends UuidObject
 {
@@ -26,7 +26,7 @@ public class Characteristic<T extends AbstractAttribute> extends UuidObject
         this.requiredCharacteristics = requiredCharacteristics;
     }
 
-    public AbstractAttribute createAttribute(byte[] incommingData)
+    public AbstractAttribute createAttribute(CryptoManager cryptoManager, byte[] incommingData)
     {
         try
         {
@@ -34,7 +34,7 @@ public class Characteristic<T extends AbstractAttribute> extends UuidObject
 
             if (isEncryptionAllowed())
             {
-                return constructor.newInstance(CryptoManagerProvider.get().processAfterReceive(incommingData));
+                return constructor.newInstance(cryptoManager.processAfterReceive(incommingData));
             }
             else
             {

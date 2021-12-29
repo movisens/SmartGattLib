@@ -27,6 +27,19 @@ public class AesUtil
         }
     }
 
+    public static SecretKey createAesKey(byte[] aesKey)
+    {
+        try
+        {
+            SecretKey secret = new SecretKeySpec(aesKey, "AES");
+            return secret;
+        }
+        catch (Throwable t)
+        {
+            throw new RuntimeException(t.getMessage());
+        }
+    }
+
     public static byte[] encrypt(byte[] input, SecretKey key)
     {
         if (input.length % 16 == 0)

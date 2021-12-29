@@ -1,12 +1,10 @@
 package com.movisens.smartgattlib.security;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import javax.crypto.SecretKey;
 
 import org.junit.Test;
-
-import com.movisens.smartgattlib.security.AesUtil;
 
 
 public class AesUtilTest

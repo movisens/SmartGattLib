@@ -4,21 +4,27 @@ import javax.crypto.SecretKey;
 
 public class CryptoManager
 {
+
     private SecretKey secretKey = null;
 
-    public void setPassword(String password)
+    public void setKey(byte[] secretKey)
     {
-        secretKey = AesUtil.createAesKey(password);
+        this.secretKey = AesUtil.createAesKey(secretKey);
     }
 
     public void initialize()
     {
         disableEncryption();
     }
-    
+
     public void disableEncryption()
     {
         secretKey = null;
+    }
+
+    public boolean encryptionEnabled()
+    {
+        return secretKey != null;
     }
 
     public byte[] processBeforeSend(byte[] data)
