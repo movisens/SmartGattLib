@@ -4,8 +4,9 @@ import com.movisens.smartgattlib.Characteristics;
 import com.movisens.smartgattlib.helper.AbstractReadAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
+import com.movisens.smartgattlib.helper.PlainTextAttribute;
 
-public class ModelNumberString extends AbstractReadAttribute
+public class ModelNumberString extends AbstractReadAttribute implements PlainTextAttribute
 {
 
 	public static final Characteristic<ModelNumberString> CHARACTERISTIC = Characteristics.MODEL_NUMBER_STRING;
