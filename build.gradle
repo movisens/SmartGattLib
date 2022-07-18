@@ -1,9 +1,10 @@
 apply plugin: 'java-library'
+apply plugin: 'maven-publish'
 
 group = 'com.github.movisens'
 
-targetCompatibility = 1.6
-sourceCompatibility = 1.6
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
 
 version = '4.0.0-SNAPSHOT'
 
@@ -31,5 +32,13 @@ jar {
 		'Bundle-Version': project.version,
 		'Export-Package': 'com.movisens.smartgattlib, com.movisens.smartgattlib.*'
         )
+    }
+}
+
+publishing {
+   publications {
+        maven(MavenPublication) {
+            from components.java
+        }
     }
 }
