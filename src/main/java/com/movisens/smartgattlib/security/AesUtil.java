@@ -1,5 +1,8 @@
 package com.movisens.smartgattlib.security;
 
+import sun.security.util.ByteArrays;
+
+import java.nio.charset.StandardCharsets;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
 
@@ -11,6 +14,20 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AesUtil
 {
+
+    public static void main(String[] args) {
+
+        byte[] keydata = {1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6};
+
+        SecretKey key = createAesKey(keydata);
+        byte[] chiperText = encrypt("1234567890123456".getBytes(StandardCharsets.UTF_8), key);
+
+        for(int i=0;i<chiperText.length;i++){
+            System.out.format("%02x ", chiperText[i]);
+        }
+        System.out.println();
+        System.out.println(chiperText);
+    }
 
     public static SecretKey createAesKey(String password)
     {
