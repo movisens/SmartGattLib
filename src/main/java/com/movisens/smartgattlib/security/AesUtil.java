@@ -1,7 +1,5 @@
 package com.movisens.smartgattlib.security;
 
-import sun.security.util.ByteArrays;
-
 import java.nio.charset.StandardCharsets;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
