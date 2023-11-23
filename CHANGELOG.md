@@ -1,9 +1,9 @@
-<a name="4.0.0"></a>
-# [4.0.0]
+<a name="3.6.0"></a>
+# [3.6.0]
 
-- allowed encryption of over the air data
-- the method getBytes of AbstractAttribute was renamed to getOutgoingData and needs CryptoManager as argument
-- changed signature Characteristic.createAttribute: CryptoManager was added
+- added application level encryption for over the air data
+- added method getOutgoingData to AbstractAttribute that replaces the method getBytes and needs CryptoManager as argument
+- added alternative signature for Characteristic.createAttribute: added new parameter for CryptoManager
 - to get the raw data representation of an attribute the method getRawData was added to AbstractAttribute
 
 <a name="3.2.0"></a>
