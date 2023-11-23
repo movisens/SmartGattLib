@@ -7,6 +7,11 @@ public abstract class AbstractAttribute
 
     protected byte[] data;
 
+    public byte[] getBytes()
+    {
+        return data;
+    }
+
     /**
      * Get data to be sent via BLE. This data may be encrypted.
      * 
@@ -27,7 +32,7 @@ public abstract class AbstractAttribute
     /**
      * Gets the raw data representation of this attribute. This data is not encrypted.
      * 
-     * @return raw adta representation
+     * @return raw data representation
      */
     public byte[] getRawData()
     {

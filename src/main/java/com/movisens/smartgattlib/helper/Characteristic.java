@@ -26,6 +26,19 @@ public class Characteristic<T extends AbstractAttribute> extends UuidObject
         this.requiredCharacteristics = requiredCharacteristics;
     }
 
+    public AbstractAttribute createAttribute(byte[] data)
+    {
+        try
+        {
+            return attributeClass.getConstructor(byte[].class).newInstance(data);
+        }
+        catch (Throwable e)
+        {
+            e.printStackTrace();
+            return new DefaultAttribute(data);
+        }
+    }
+
     public AbstractAttribute createAttribute(CryptoManager cryptoManager, byte[] incommingData)
     {
         try

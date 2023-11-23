@@ -19,8 +19,8 @@ public class WeightTest {
         assertEquals(weight.getWeight(), weightFloat, 0);
         assertEquals(weightBytes.getWeight(), weightFloat.doubleValue(), 0);
         assertEquals(weightBytes.getWeight(), weight.getWeight());
-        assertArrayEquals(weight.getRawData(), bytes);
-        assertArrayEquals(weightBytes.getRawData(), bytes);
-        assertArrayEquals(weight.getRawData(), weightBytes.getRawData());
+        assertArrayEquals(weight.getBytes(), bytes);
+        assertArrayEquals(weightBytes.getBytes(), bytes);
+        assertArrayEquals(weight.getBytes(), weightBytes.getBytes());
     }
 }
