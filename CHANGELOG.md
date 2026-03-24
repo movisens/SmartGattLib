@@ -1,3 +1,8 @@
+<a name="3.6.1"></a>
+## [3.6.1] (2026-03-24)
+
+- no fundamental API or functional changes since 3.6.0
+
 <a name="3.6.0"></a>
 # [3.6.0]
 
