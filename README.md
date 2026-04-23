@@ -39,7 +39,7 @@ Example Android project with SmartGattLib available [here](https://github.com/mo
 	    maven { url "https://jitpack.io" }
 	}
 	dependencies {
-	    compile 'com.github.movisens:SmartGattLib:3.6.1'
+	    compile 'com.github.movisens:SmartGattLib:4.0.0'
 	}
   ```
   or download the latest .jar file from the [releases](https://github.com/movisens/SmartGattLib/releases) page and place it in your Android app’s libs/ folder. 
