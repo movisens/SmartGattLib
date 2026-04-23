@@ -1,3 +1,9 @@
+<a name="4.0.0"></a>
+## [4.0.0] (2026-04-23)
+
+- breaking API change: `KeyGenerator.createKey(String)` now returns `long` instead of `long[]`
+- `createKey(String)` now returns the scalar key used by the existing sealing and login APIs
+
 <a name="3.6.1"></a>
 ## [3.6.1] (2026-03-24)
 
