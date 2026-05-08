@@ -26,7 +26,7 @@ public class BatteryLevel extends AbstractReadAttribute
 	{
 		this.data = data;
 		GattByteBuffer bb = GattByteBuffer.wrap(data);
-		level = new Double(bb.getUint8());
+		level = (double) bb.getUint8();
 	}
 
 	@Override

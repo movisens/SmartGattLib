@@ -34,7 +34,7 @@ public class Weight extends AbstractReadWriteAttribute
 		}
 		this.weight = weight;
 		GattByteBuffer bb = GattByteBuffer.allocate(2);
-		bb.putUint16(new Long(Math.round(weight / 0.005)).intValue());
+		bb.putUint16((int) Math.round(weight / 0.005));
 		this.data = bb.array();
 	}
 
