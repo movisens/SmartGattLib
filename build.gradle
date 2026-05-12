@@ -11,7 +11,8 @@ java {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
-version = '4.0.0'
+def releaseVersionOverride = providers.gradleProperty('releaseVersion').orNull
+version = releaseVersionOverride ?: '4.0.0'
 
 repositories {
     mavenCentral()
