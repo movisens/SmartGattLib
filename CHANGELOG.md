@@ -1,58 +1,34 @@
-<a name="4.0.0"></a>
-## [4.0.0] (2026-04-23)
+# Changelog
+
+## 4.1.0
+
+- plain-text and encrypted attributes are handled consistently based on the attribute type
+- attributes used for sealing and login now follow the encrypted BLE path
+
+## 4.0.0
 
 - breaking API change: `KeyGenerator.createKey(String)` now returns `long` instead of `long[]`
 - `createKey(String)` now returns the scalar key used by the existing sealing and login APIs
 
-<a name="3.6.1"></a>
-## [3.6.1] (2026-03-24)
+## 3.6.1
 
 - no fundamental API or functional changes since 3.6.0
 
-<a name="3.6.0"></a>
-# [3.6.0]
+## 3.6.0
 
 - added application level encryption for over the air data
 - added method getOutgoingData to AbstractAttribute that replaces the method getBytes and needs CryptoManager as argument
 - added alternative signature for Characteristic.createAttribute: added new parameter for CryptoManager
 - to get the raw data representation of an attribute the method getRawData was added to AbstractAttribute
 
-<a name="3.2.0"></a>
-# [3.2.0] (2019-09-03)
+## 3.2.0
 
  - Added putMstime to GattByteBuffer
 
-<a name="3.1.0"></a>
-# [3.1.0] (2019-02-21)
+## 3.1.0
 
  - Added getCharacteristics to obtain all Characteristics as a Collection
 
-<a name="3.0.0"></a>
-# [3.0.0](https://github.com/movisens/SmartGattLib/compare/v2.1...v3.0) (2017-11-07)
+## 3.0.0
 
-This release comes with a significant api change to simplify 
-
-### Upgrade Instructions
-
-* replace ```com.movisens.smartgattlib.Service``` with ```com.movisens.smartgattlib.Services```
-* replace ```com.movisens.smartgattlib.Characteristic``` with ```com.movisens.smartgattlib.Characteristics```
-
-It is now possible to parse Characteristics with:
-``` java
-AbstractAttribute a = Characteristics.lookup(uuid).createAttribute(data);
-if (a instanceof HeartRateMeasurement) {
-    HeartRateMeasurement heartRateMeasurement = ((HeartRateMeasurement) a);
-    heartRateMeasurement.getHr();
-    heartRateMeasurement.getEe();
-} else if (a instanceof DefaultAttribute) {
-    System.err.println("characteristic for " + uuid + " is unknown");
-} else {
-    System.out.println("unused characteristic " + a.getCharacteristic().getName());
-}
-```
-
-It is also possible to write Characteristics and convert them to bytes:
-``` java
-AbstractAttribute aa = new Weight(12.3);
-// TODO: Write aa.getBytes() to aa.getCharacteristic().getUuid();
-```
+- started changelog
