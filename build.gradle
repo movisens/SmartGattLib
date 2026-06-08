@@ -11,8 +11,10 @@ java {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
-def releaseVersionOverride = providers.gradleProperty('releaseVersion').orNull
-version = releaseVersionOverride ?: '4.0.0'
+def releaseVersionFile = rootProject.file('version.properties')
+if (!releaseVersionFile.exists()) throw new GradleException("version.properties not found in ${rootProject.projectDir")
+def releaseVersionProps = new Properties(); releaseVersionFile.withInputStream { releaseVersionProps.load(it) }
+version = providers.gradleProperty('releaseVersion').orNull ?: releaseVersionProps.getProperty('version')
 
 repositories {
     mavenCentral()
