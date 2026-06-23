@@ -1,13 +1,10 @@
 package com.movisens.smartgattlib.security;
 
 import java.nio.charset.StandardCharsets;
-import java.security.spec.KeySpec;
 import java.util.Arrays;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class AesUtil
@@ -25,21 +22,6 @@ public class AesUtil
         }
         System.out.println();
         System.out.println(chiperText);
-    }
-
-    public static SecretKey createAesKey(String password)
-    {
-        try
-        {
-            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-            KeySpec spec = new PBEKeySpec(password.toCharArray(), password.getBytes(), 65536, 128);
-            SecretKey secret = new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
-            return secret;
-        }
-        catch (Throwable t)
-        {
-            throw new RuntimeException(t.getMessage());
-        }
     }
 
     public static SecretKey createAesKey(byte[] aesKey)

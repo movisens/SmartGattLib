@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class AesUtilTest
 {
-    static SecretKey key = AesUtil.createAesKey("secret");
+    static SecretKey key = AesUtil.createAesKey(new byte[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6});
     
     @Test
     public void testSmallBlock()
