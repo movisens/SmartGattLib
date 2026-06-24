@@ -3,6 +3,7 @@ package com.movisens.smartgattlib.security;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import java.security.spec.InvalidKeySpecException;
 import java.text.Normalizer;
 
 import org.junit.Test;
@@ -10,26 +11,24 @@ import org.junit.Test;
 public class KeyGeneratorTest
 {
     @Test
-    public void isDeterministicForSamePasswordAndSerial() throws Exception
+    public void isDeterministicForSamePassword() throws Exception
     {
-        long a = KeyGenerator.createKey("Tr0ub4dor&3", "1234567890");
-        long b = KeyGenerator.createKey("Tr0ub4dor&3", "1234567890");
+        long a = KeyGenerator.createKey("Tr0ub4dor&3");
+        long b = KeyGenerator.createKey("Tr0ub4dor&3");
         assertEquals(a, b);
     }
 
     @Test
-    public void serialIsTheSalt_differentSerialsGiveDifferentKeys() throws Exception
+    public void matchesLegacyUsbPasswordOnlyDerivation() throws Exception
     {
-        long a = KeyGenerator.createKey("Tr0ub4dor&3", "1111111111");
-        long b = KeyGenerator.createKey("Tr0ub4dor&3", "2222222222");
-        assertNotEquals(a, b);
+        assertEquals(6217925914105931191L, KeyGenerator.createKey("Tr0ub4dor&3"));
     }
 
     @Test
     public void differentPasswordsGiveDifferentKeys() throws Exception
     {
-        long a = KeyGenerator.createKey("correct horse", "1234567890");
-        long b = KeyGenerator.createKey("wrong horse", "1234567890");
+        long a = KeyGenerator.createKey("correct horse");
+        long b = KeyGenerator.createKey("wrong horse");
         assertNotEquals(a, b);
     }
 
@@ -43,6 +42,12 @@ public class KeyGeneratorTest
         String nfd = "cafe" + (char) 0x0301;
         assertNotEquals("precondition: the two forms differ as raw strings", nfc, nfd);
         assertEquals(Normalizer.normalize(nfc, Normalizer.Form.NFC), Normalizer.normalize(nfd, Normalizer.Form.NFC));
-        assertEquals(KeyGenerator.createKey(nfc, "1234567890"), KeyGenerator.createKey(nfd, "1234567890"));
+        assertEquals(KeyGenerator.createKey(nfc), KeyGenerator.createKey(nfd));
+    }
+
+    @Test(expected = InvalidKeySpecException.class)
+    public void rejectsEmptyPassword() throws Exception
+    {
+        KeyGenerator.createKey("");
     }
 }

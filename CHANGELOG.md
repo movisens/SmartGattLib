@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.0
+
+- restored password-only sealing key derivation so sealed sensors can be unlocked before the serial number is readable
+- `KeyGenerator.createKey(String)` is now the shared key derivation used by BLE and USB
+
 ## 4.1.0
 
 - plain-text and encrypted attributes are handled consistently based on the attribute type
