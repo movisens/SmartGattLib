@@ -5,6 +5,9 @@ import com.movisens.smartgattlib.helper.AbstractReadWriteAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 
+/**
+ * Weight of the User
+ */
 public class Weight extends AbstractReadWriteAttribute
 {
 
