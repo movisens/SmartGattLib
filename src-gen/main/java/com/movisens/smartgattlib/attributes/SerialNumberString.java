@@ -6,6 +6,9 @@ import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 import com.movisens.smartgattlib.helper.PlainTextAttribute;
 
+/**
+ * The value of this characteristic is a variable-length UTF-8 string representing the serial number for a particular instance of the device.
+ */
 public class SerialNumberString extends AbstractReadAttribute implements PlainTextAttribute
 {
 

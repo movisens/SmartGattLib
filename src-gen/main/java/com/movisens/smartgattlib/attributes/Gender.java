@@ -5,6 +5,9 @@ import com.movisens.smartgattlib.helper.AbstractReadWriteAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 
+/**
+ * Gender of the user. The value of the Gender characteristic are defined below: 0:male,1:female, 2:Unspecified,3-225: RFU
+ */
 public class Gender extends AbstractReadWriteAttribute
 {
 

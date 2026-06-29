@@ -6,6 +6,9 @@ import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 import com.movisens.smartgattlib.helper.PlainTextAttribute;
 
+/**
+ * The external appearance of this device. The values are composed of a category (10-bits) and sub-categories (6-bits).
+ */
 public class Appearance extends AbstractReadAttribute implements PlainTextAttribute
 {
 

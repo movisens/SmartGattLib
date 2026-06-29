@@ -5,6 +5,9 @@ import com.movisens.smartgattlib.helper.AbstractReadAttribute;
 import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 
+/**
+ * The current charge level of a battery. 100% represents fully charged while 0% represents fully discharged.
+ */
 public class BatteryLevel extends AbstractReadAttribute
 {
 

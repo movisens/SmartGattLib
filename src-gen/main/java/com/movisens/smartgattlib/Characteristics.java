@@ -9,6 +9,7 @@ import com.movisens.smartgattlib.helper.UuidObjectMap;
 import com.movisens.smartgattlib.helper.AbstractAttribute;
 import com.movisens.smartgattlib.attributes.*;
 
+@SuppressWarnings("deprecation")
 public class Characteristics
 {
 

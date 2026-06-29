@@ -6,6 +6,9 @@ import com.movisens.smartgattlib.helper.Characteristic;
 import com.movisens.smartgattlib.helper.GattByteBuffer;
 import com.movisens.smartgattlib.helper.PlainTextAttribute;
 
+/**
+ * The value of this characteristic is a UTF-8 string representing the model number assigned by the device vendor.
+ */
 public class ModelNumberString extends AbstractReadAttribute implements PlainTextAttribute
 {
 
